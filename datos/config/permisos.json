@@ -1,0 +1,6 @@
+{
+  "prueba": {
+    "leer": ["publico"],
+    "escribir": ["publico"]
+  }
+}

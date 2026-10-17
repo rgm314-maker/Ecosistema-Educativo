@@ -1,0 +1,11 @@
+node_modules/
+.env
+datos/*.json
+datos/*.jsonl
+datos/mensajes/
+datos/respaldos/
+publico/recursos/subidas/
+!datos/config/
+!datos/config/*.json
+!datos/semilla/
+!datos/semilla/*.json
