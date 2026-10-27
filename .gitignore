@@ -15,11 +15,11 @@ datos/*.json
 datos/*.jsonl
 datos/mensajes/
 datos/respaldos/
-datos/config/ajustes.json
 publico/recursos/subidas/
 logs/
 scratch/
 !datos/config/
 !datos/config/*.json
+datos/config/ajustes.json
 !datos/semilla/
 !datos/semilla/*.json
