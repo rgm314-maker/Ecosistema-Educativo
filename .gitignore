@@ -15,6 +15,7 @@ datos/*.json
 datos/*.jsonl
 datos/mensajes/
 datos/respaldos/
+datos/config/ajustes.json
 publico/recursos/subidas/
 logs/
 scratch/
