@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de datos · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/prueba-datos.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="prueba-grid">
+      <!-- Formulario para agregar registros -->
+      <section class="tarjeta">
+        <h2>Nuevo registro</h2>
+        <p>Escribe un texto para guardarlo en la colección <code>prueba</code> a través de la API.</p>
+        
+        <form id="formPrueba" class="prueba-formulario" novalidate>
+          <div class="campo">
+            <label for="campoTexto">Texto a almacenar</label>
+            <input type="text" id="campoTexto" name="texto" placeholder="Ej. Primer registro de prueba" required>
+            <span id="errorTexto" class="campo__error oculto">El texto no puede estar vacío.</span>
+          </div>
+
+          <div class="fila">
+            <button type="submit" class="btn btn--primario" id="btnGuardar">
+              Guardar registro
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Listado de registros existentes -->
+      <section class="tarjeta prueba-lista-contenedor">
+        <div class="fila" style="justify-content: space-between;">
+          <h2>Registros almacenados</h2>
+          <button type="button" class="btn btn--secundario btn--pequeno" id="btnRecargar" title="Refrescar listado">
+            ↻ Recargar
+          </button>
+        </div>
+
+        <div id="contenedorLista">
+          <div class="cargando" aria-label="Cargando registros"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/prueba-datos.js"></script>
+</body>
+</html>

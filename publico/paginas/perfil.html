@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Perfil · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/perfil.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="perfil-grid">
+      <!-- Datos personales y foto -->
+      <section class="tarjeta">
+        <h2>Datos Personales</h2>
+        <p>Actualiza tu información pública y fotografía de perfil.</p>
+
+        <form id="formPerfil" class="pila" novalidate>
+          <div class="perfil-foto-bloque">
+            <div class="perfil-avatar" id="avatarContenedor" aria-label="Foto de perfil">
+              <span id="avatarIcono">👤</span>
+              <img id="avatarImg" class="oculto" alt="Foto de perfil">
+            </div>
+
+            <div class="pila" style="gap: var(--espacio-xs);">
+              <label for="campoArchivoFoto" class="btn btn--secundario btn--pequeno" style="cursor: pointer;">
+                Seleccionar foto
+              </label>
+              <input type="file" id="campoArchivoFoto" accept="image/jpeg,image/png,image/webp" class="oculto">
+              <small>JPG, PNG o WEBP (máx. 2 MB)</small>
+              <span id="errorFoto" class="campo__error oculto"></span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="campoNombre">Nombre</label>
+            <input type="text" id="campoNombre" name="nombre" required>
+            <span id="errorNombre" class="campo__error oculto">El nombre es obligatorio.</span>
+          </div>
+
+          <div class="campo">
+            <label for="campoApellido">Apellido</label>
+            <input type="text" id="campoApellido" name="apellido" required>
+            <span id="errorApellido" class="campo__error oculto">El apellido es obligatorio.</span>
+          </div>
+
+          <div class="campo">
+            <label for="campoCorreo">Correo electrónico</label>
+            <input type="email" id="campoCorreo" name="correo" disabled>
+            <small>El correo institucional no puede modificarse directamente.</small>
+          </div>
+
+          <div class="campo">
+            <label for="campoRol">Rol en el sistema</label>
+            <input type="text" id="campoRol" name="rol" disabled>
+          </div>
+
+          <button type="submit" class="btn btn--primario" id="btnGuardarPerfil">
+            Guardar cambios
+          </button>
+        </form>
+      </section>
+
+      <!-- Cambio de contraseña -->
+      <section class="tarjeta">
+        <h2>Seguridad y Contraseña</h2>
+        <p>Modifica tu contraseña de acceso institucional.</p>
+
+        <form id="formClave" class="pila" novalidate>
+          <div class="campo">
+            <label for="claveActual">Contraseña actual</label>
+            <input type="password" id="claveActual" name="actual" autocomplete="current-password" required>
+            <span id="errorClaveActual" class="campo__error oculto">Ingresa tu contraseña actual.</span>
+          </div>
+
+          <div class="campo">
+            <label for="claveNueva">Nueva contraseña</label>
+            <input type="password" id="claveNueva" name="nueva" autocomplete="new-password" placeholder="Mínimo 8 caracteres (letras y números)" required>
+            <span id="errorClaveNueva" class="campo__error oculto">La contraseña debe tener al menos 8 caracteres con letras y números.</span>
+          </div>
+
+          <div class="campo">
+            <label for="claveRepetir">Repetir nueva contraseña</label>
+            <input type="password" id="claveRepetir" name="repetir" autocomplete="new-password" placeholder="Confirma la nueva contraseña" required>
+            <span id="errorClaveRepetir" class="campo__error oculto">Las contraseñas no coinciden.</span>
+          </div>
+
+          <button type="submit" class="btn btn--secundario" id="btnCambiarClave">
+            Actualizar contraseña
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Sección de logros (Sprint 5) -->
+    <section id="logros"></section>
+  </main>
+  <script type="module" src="/js/modulos/perfil.js"></script>
+</body>
+</html>

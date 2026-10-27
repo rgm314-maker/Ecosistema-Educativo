@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Agenda · Ecosistema Educativo</title>
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/componentes.css"><link rel="stylesheet" href="/css/modulos/agenda.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/skeleton.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/theme.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/palette.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/all/global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/locales-all/global.js"></script></head>
+<body><div id="plantilla"></div><main id="contenido" class="contenedor pila">
+<header class="agenda__cabecera"><div><h1>Agenda</h1><p class="texto-suave">Organiza tus actividades y fechas importantes.</p></div><button id="nuevo-evento" class="btn btn--primario" type="button">Nuevo evento</button></header>
+<section class="agenda__rejilla"><div class="tarjeta agenda__calendario"><h2 id="calendario-titulo" aria-live="polite"></h2><div id="calendario" aria-label="Calendario de eventos"></div></div><aside class="tarjeta"><h2>Mi semana</h2><div id="mi-semana" class="pila" aria-live="polite"></div></aside></section>
+<dialog id="modal-evento" class="modal-dialog"><form id="form-evento" class="pila"><h2 id="titulo-modal">Nuevo evento</h2><input id="evento-id" type="hidden">
+<label class="campo"><span>Título</span><input id="titulo" maxlength="160" required></label>
+<label class="campo"><span>Tipo</span><select id="tipo" required><option value="tarea">Tarea</option><option value="reunion">Reunión</option><option value="fecha-limite">Fecha límite</option><option value="recordatorio">Recordatorio</option></select></label>
+<div class="agenda__fechas"><label class="campo"><span>Inicio</span><input id="inicio" type="datetime-local" required></label><label class="campo"><span>Fin</span><input id="fin" type="datetime-local"></label></div>
+<label class="agenda__opcion"><input id="todo-el-dia" type="checkbox"> Todo el día</label>
+<fieldset class="agenda__fieldset"><legend>Recordatorios</legend><label class="agenda__opcion"><input id="recordatorio-dia" type="checkbox"> 1 día antes</label><label class="agenda__opcion"><input id="recordatorio-hora" type="checkbox"> 1 hora antes</label></fieldset>
+<section id="campos-docente" class="pila oculto"><label class="campo"><span>Grupo</span><select id="grupo"><option value="">Evento personal</option></select></label><label class="campo"><span>Actividad vinculada</span><select id="actividad"><option value="">Sin actividad</option></select></label><label class="campo"><span>Tema</span><select id="tema"><option value="">Selecciona un tema</option></select></label></section>
+<div class="modal-acciones"><button id="eliminar-evento" class="btn btn--peligro oculto" type="button">Eliminar</button><button id="cancelar-evento" class="btn btn--secundario" type="button">Cancelar</button><button class="btn btn--primario" type="submit">Guardar</button></div></form></dialog>
+</main><script type="module" src="/js/modulos/agenda.js"></script></body></html>

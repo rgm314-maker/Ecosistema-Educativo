@@ -1,0 +1,154 @@
+/* publico/css/modulos/sopa-letras.css */
+/* Estilos para la Sopa de Letras accesible con Pointer Events */
+
+.sopa-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .sopa-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablero de la sopa */
+.sopa-tablero-caja {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+.sopa-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--tamano-sopa, 10), minmax(0, 1fr));
+  gap: 2px;
+  background-color: var(--borde);
+  border: var(--borde-grueso) solid var(--borde);
+  border-radius: var(--radio-m);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.sopa-celda {
+  aspect-ratio: 1;
+  background-color: var(--superficie);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fuente-titulos);
+  font-size: clamp(12px, 2.5vw, 18px);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion), transform var(--transicion);
+  user-select: none;
+}
+
+/* Celda seleccionada mientras se arrastra el puntero */
+.sopa-celda.celda--seleccionada {
+  background-color: var(--acento);
+  color: var(--primario-oscuro);
+  transform: scale(0.96);
+}
+
+/* Celda parte de una palabra ya encontrada */
+.sopa-celda.celda--encontrada {
+  background-color: var(--exito-fondo);
+  color: var(--exito);
+  font-weight: var(--peso-extranegrita);
+}
+
+/* Celda revelada tras rendirse */
+.sopa-celda.celda--revelada {
+  background-color: var(--advertencia-fondo);
+  color: var(--advertencia);
+  font-weight: var(--peso-extranegrita);
+}
+
+/* Panel lateral de palabras y progreso */
+.sopa-panel-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.sopa-marcador {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+}
+
+.sopa-marcador strong {
+  font-size: var(--texto-l);
+  color: var(--primario);
+  font-variant-numeric: tabular-nums;
+}
+
+.sopa-palabras-caja {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.sopa-palabras-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.palabra-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  transition: all var(--transicion);
+}
+
+.palabra-chip--encontrada {
+  background-color: var(--exito-fondo);
+  border-color: var(--exito);
+  color: var(--exito);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.palabra-chip--revelada {
+  background-color: var(--advertencia-fondo);
+  border-color: var(--advertencia);
+  color: var(--advertencia);
+  opacity: 0.8;
+}

@@ -1,0 +1,224 @@
+/* publico/css/modulos/perfil.css */
+/* Estilos específicos de la página de perfil */
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (max-width: 768px) { /* PROVISIONAL */
+  .perfil-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.perfil-foto-bloque {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-m);
+  margin-bottom: var(--espacio-s);
+}
+
+.perfil-avatar {
+  width: 80px; /* PROVISIONAL */
+  height: 80px; /* PROVISIONAL */
+  border-radius: var(--radio-completo);
+  object-fit: cover;
+  background-color: var(--fondo);
+  border: var(--borde-grueso) solid var(--borde);
+  display: grid;
+  place-items: center;
+  font-size: var(--texto-2xl);
+  color: var(--texto-suave);
+  overflow: hidden;
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sección de logros: puntos, vitrina de insignias y certificado de cumplimiento */
+.logros-seccion {
+  margin-top: var(--espacio-xl);
+}
+
+.logros-cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  margin-bottom: var(--espacio-l);
+  justify-content: space-between;
+}
+
+@media (min-width: 600px) {
+  .logros-cabecera {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.puntos-tarjeta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m) var(--espacio-l);
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-m);
+  align-self: flex-start;
+}
+
+.puntos-icono {
+  font-size: var(--texto-2xl);
+}
+
+.puntos-cifra {
+  font-family: var(--fuente-titulos);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-extranegrita);
+  color: var(--acento);
+  line-height: var(--interlineado-apretado);
+}
+
+.puntos-label {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--peso-seminegrita);
+}
+
+/* Vitrina de insignias */
+.vitrina-contenedor {
+  margin-top: var(--espacio-l);
+  padding-top: var(--espacio-l);
+  border-top: 1px solid var(--borde);
+}
+
+.vitrina-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-m);
+}
+
+.insignias-grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--espacio-m);
+}
+
+.insignia-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacio-m);
+  border-radius: var(--radio-m);
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  gap: var(--espacio-xs);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.insignia-tarjeta--obtenida {
+  border-color: var(--acento);
+  box-shadow: var(--sombra-s);
+}
+
+.insignia-tarjeta--obtenida:hover {
+  transform: translateY(-2px);
+}
+
+.insignia-tarjeta--bloqueada {
+  filter: grayscale(1);
+  opacity: 0.65;
+  background-color: var(--fondo);
+  border-style: dashed;
+}
+
+.insignia-tarjeta__icono {
+  font-size: var(--texto-3xl);
+  line-height: 1;
+  margin-bottom: var(--espacio-xs);
+}
+
+.insignia-tarjeta__nombre {
+  font-size: var(--texto-m);
+  font-weight: var(--peso-negrita);
+  color: var(--texto);
+}
+
+.insignia-tarjeta__fecha {
+  font-size: var(--texto-xs);
+  color: var(--exito);
+  font-weight: var(--peso-medio);
+}
+
+.insignia-tarjeta__condicion {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+  line-height: var(--interlineado-base);
+}
+
+/* Certificado de cumplimiento */
+.certificado-cumplimiento {
+  margin-top: var(--espacio-l);
+  padding-top: var(--espacio-l);
+  border-top: 1px solid var(--borde);
+}
+
+.certificado-cumplimiento__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  margin-bottom: var(--espacio-m);
+  justify-content: space-between;
+}
+
+@media (min-width: 600px) {
+  .certificado-cumplimiento__header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.condiciones-barras {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  margin-top: var(--espacio-m);
+}
+
+.condicion-barra-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.condicion-barra-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--texto-s);
+}
+
+.condicion-barra-nombre {
+  font-weight: var(--peso-seminegrita);
+  color: var(--texto);
+}
+
+.condicion-barra-valores {
+  color: var(--texto-suave);
+  font-weight: var(--peso-medio);
+}
+
+.condicion-barra-valores--cumple {
+  color: var(--exito);
+  font-weight: var(--peso-negrita);
+}
+

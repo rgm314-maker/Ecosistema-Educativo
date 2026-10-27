@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutor socrático · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/tutor.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pagina-tutor" data-avatar="Cuéntame qué parte del tema quieres comprender. Te ayudaré a razonar paso a paso.">
+    <header class="tutor__encabezado">
+      <div class="pila tutor__presentacion">
+        <p class="tutor__etiqueta">Aprende razonando</p>
+        <h1>Tutor socrático</h1>
+        <p id="temaTutor">Cargando tema…</p>
+        <div class="tutor__guias" id="preguntasGuia" aria-label="Preguntas para iniciar"></div>
+      </div>
+      <button type="button" class="btn btn--secundario" id="btnNuevaConversacion">Nueva conversación</button>
+    </header>
+
+    <section class="tarjeta tutor__chat" aria-labelledby="tituloConversacion">
+      <h2 id="tituloConversacion">Conversación</h2>
+      <div class="tutor__mensajes" id="mensajesTutor" role="log" aria-live="polite" aria-relevant="additions">
+        <div class="tutor__inicio"><p>Selecciona una pregunta guía o escribe tu duda.</p></div>
+      </div>
+      <p class="tutor__pensando" id="tutorPensando" role="status" hidden>El tutor está pensando...</p>
+
+      <form id="formTutor" class="tutor__formulario">
+        <div class="campo">
+          <label for="preguntaTutor">Tu mensaje</label>
+          <textarea id="preguntaTutor" maxlength="1000" rows="3" required disabled
+            placeholder="Escribe qué parte del tema necesitas comprender."></textarea>
+          <div class="tutor__ayuda">
+            <small>Enter para enviar · Mayús + Enter para una nueva línea</small>
+            <small id="contadorTutor">0/1000</small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primario" id="btnEnviarTutor" disabled>Enviar</button>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/js/modulos/tutor.js"></script>
+</body>
+</html>

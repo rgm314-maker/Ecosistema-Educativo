@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node servidor/server.js",
     "semilla": "node servidor/semilla.js",
-    "crear-admin": "node servidor/crear-admin.js"
+    "crear-admin": "node servidor/crear-admin.js",
+    "crear-estudiante": "node servidor/crear-estudiante.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

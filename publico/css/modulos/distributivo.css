@@ -1,0 +1,97 @@
+/* publico/css/modulos/distributivo.css */
+/* Estilos para la administración del distributivo académico */
+
+.distributivo-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  margin-bottom: var(--espacio-l);
+}
+
+.distributivo-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  background-color: var(--superficie);
+}
+
+.distributivo-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.distributivo-tabla th,
+.distributivo-tabla td {
+  padding: var(--espacio-m);
+  border-bottom: var(--borde-fino) solid var(--borde);
+  vertical-align: middle;
+}
+
+.distributivo-tabla th {
+  background-color: var(--fondo);
+  font-weight: var(--peso-negrita);
+  color: var(--texto);
+  font-size: var(--texto-s);
+}
+
+.distributivo-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.distributivo-tabla tr:hover {
+  background-color: var(--fondo);
+}
+
+/* Selector interactivo de estudiantes dentro del modal */
+.estudiantes-seleccionador {
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-s);
+  background-color: var(--fondo);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.estudiantes-buscador-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  flex-wrap: wrap;
+}
+
+.estudiantes-lista-scroll {
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  background-color: var(--superficie);
+  padding: var(--espacio-s);
+  border-radius: var(--radio-s);
+  border: var(--borde-fino) solid var(--borde);
+}
+
+.item-estudiante {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-s);
+  cursor: pointer;
+  font-size: var(--texto-s);
+  transition: background-color var(--transicion);
+}
+
+.item-estudiante:hover {
+  background-color: var(--fondo);
+}
+
+.item-estudiante input[type="checkbox"] {
+  cursor: pointer;
+}

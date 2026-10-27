@@ -1,0 +1,189 @@
+/* publico/css/modulos/editor-tema.css */
+/* Estilos para la ficha curricular del tema y glosario interactivo */
+
+.editor-tema-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m) var(--espacio-l);
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+}
+
+.editor-tema-acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex-wrap: wrap;
+}
+
+.seccion-ficha {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.seccion-ficha__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  padding-bottom: var(--espacio-m);
+  margin-bottom: var(--espacio-l);
+  border-bottom: var(--borde-fino) solid var(--borde);
+}
+
+.seccion-ficha__titulo {
+  font-size: var(--texto-l);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  margin: 0;
+}
+
+/* Contador de palabras y estado */
+.contador-palabras {
+  font-size: var(--texto-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-xs);
+  font-weight: var(--peso-medio);
+}
+
+.contador-palabras--optimo {
+  color: var(--exito);
+}
+
+.contador-palabras--aviso {
+  color: var(--advertencia);
+}
+
+/* Listas dinámicas de elementos (objetivos, ejemplos, errores, preguntas) */
+.lista-dinamica {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-dinamico {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+.item-dinamico input[type="text"] {
+  flex: 1;
+}
+
+/* Recursos interactivos */
+.item-recurso {
+  display: grid;
+  grid-template-columns: 140px 1.2fr 1.5fr auto auto;
+  gap: var(--espacio-s);
+  align-items: center;
+  padding: var(--espacio-s);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+}
+
+@media (max-width: 768px) {
+  .item-recurso {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Métricas del Glosario */
+.glosario-metricas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  margin-bottom: var(--espacio-l);
+}
+
+.glosario-metrica-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  font-size: var(--texto-s);
+  color: var(--texto);
+}
+
+.indicador-apto {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  font-weight: var(--peso-negrita);
+  padding: var(--espacio-xs) var(--espacio-m);
+  border-radius: var(--radio-completo);
+  font-size: var(--texto-xs);
+}
+
+.indicador-apto--si {
+  background-color: var(--exito-fondo);
+  color: var(--exito);
+  border: var(--borde-fino) solid var(--exito);
+}
+
+.indicador-apto--no {
+  background-color: var(--advertencia-fondo);
+  color: var(--advertencia);
+  border: var(--borde-fino) solid var(--advertencia);
+}
+
+/* Tabla del Glosario */
+.tabla-glosario-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+}
+
+.tabla-glosario {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabla-glosario th,
+.tabla-glosario td {
+  padding: var(--espacio-m);
+  border-bottom: var(--borde-fino) solid var(--borde);
+  vertical-align: top;
+}
+
+.tabla-glosario th {
+  background-color: var(--fondo);
+  font-weight: var(--peso-negrita);
+  color: var(--texto);
+  font-size: var(--texto-s);
+}
+
+.tabla-glosario tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-glosario tr:hover {
+  background-color: var(--fondo);
+}
+
+.preview-resumen {
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  line-height: var(--interlineado-base);
+}

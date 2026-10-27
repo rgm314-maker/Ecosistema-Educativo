@@ -1,0 +1,87 @@
+/* publico/css/tokens.css */
+/* Tokens de diseño del Ecosistema Educativo - UNEMI */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Colores */
+  --primario: #002e45;
+  --primario-oscuro: #1c3247;
+  --secundario: #264763;
+  --acento: #ff6900;
+  --exito: #1d6540;
+  --advertencia: #cd5500;
+  --error: #c02626; /* PROVISIONAL */
+  --info: #14648e;
+  --fondo: #f5f7f8;
+  --superficie: #ffffff;
+  --borde: #dfe7ec;
+  --texto: #182d3e;
+  --texto-suave: #627586;
+  --texto-inverso: #ffffff;
+
+  /* Fondos tenues para estados y superficies complementarias */
+  --exito-fondo: #e6f5ec; /* PROVISIONAL */
+  --advertencia-fondo: #fff5ec; /* PROVISIONAL */
+  --error-fondo: #feeceb; /* PROVISIONAL */
+  --info-fondo: #ecf6fa; /* PROVISIONAL */
+  --color-overlay: rgba(0, 46, 69, 0.65); /* PROVISIONAL */
+  --color-foco: rgba(20, 112, 168, 0.25); /* PROVISIONAL */
+
+  /* Tipografía */
+  --fuente-base: "Poppins", Arial, sans-serif;
+  --fuente-titulos: "Poppins", Arial, sans-serif;
+
+  --texto-xs: 0.75rem;
+  --texto-s: 0.875rem;
+  --texto-m: 1rem;
+  --texto-l: 1.25rem;
+  --texto-xl: 1.5rem;
+  --texto-2xl: 2rem;
+  --texto-3xl: 2.5rem;
+
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-seminegrita: 600;
+  --peso-negrita: 700;
+  --peso-extranegrita: 800;
+
+  --interlineado-apretado: 1.25;
+  --interlineado-base: 1.6;
+  --interlineado-amplio: 1.8;
+
+  /* Espaciados */
+  --espacio-xs: 0.25rem;
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 1.5rem;
+  --espacio-xl: 2rem;
+  --espacio-2xl: 3rem;
+
+  /* Radios */
+  --radio-s: 4px;
+  --radio-m: 8px;
+  --radio-l: 12px;
+  --radio-completo: 9999px;
+
+  /* Sombras */
+  --sombra-1: 0 2px 10px rgba(0, 46, 69, 0.055);
+  --sombra-2: 0 8px 24px rgba(0, 46, 69, 0.1);
+  --sombra-3: 0 16px 36px rgba(0, 46, 69, 0.16);
+
+  /* Transición y layout */
+  --transicion: 0.2s ease;
+  --ancho-maximo: 1280px;
+
+  /* Dimensiones auxiliares de componentes */
+  --borde-fino: 1px; /* PROVISIONAL */
+  --borde-grueso: 2px; /* PROVISIONAL */
+  --borde-destacado: 4px; /* PROVISIONAL */
+  --ancho-menu-lateral: 270px; /* PROVISIONAL */
+  --ancho-modal-max: 520px; /* PROVISIONAL */
+  --ancho-columna-min: 260px; /* PROVISIONAL */
+  --tamano-spinner: 32px; /* PROVISIONAL */
+  --tamano-insignia: 48px; /* PROVISIONAL */
+  --altura-barra-progreso: 8px; /* PROVISIONAL */
+  --capa-avisos: 110;
+}

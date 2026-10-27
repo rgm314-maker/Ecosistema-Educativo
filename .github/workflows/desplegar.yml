@@ -1,0 +1,77 @@
+name: Desplegar ecosistema educativo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: despliegue-produccion
+  cancel-in-progress: false
+
+jobs:
+  validar-y-desplegar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar JavaScript
+        shell: bash
+        run: |
+          find servidor publico/js -type f -name '*.js' -print0 |
+            xargs -0 -n1 node --check
+
+      - name: Configurar acceso SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Copiar aplicación al servidor
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          APP_DIR: ${{ secrets.APP_DIR }}
+        run: |
+          PUERTO_SSH="${SSH_PORT:-22}"
+          DESTINO="${APP_DIR:-/srv/ecosistema-educativo}"
+          rsync -az \
+            --exclude '.git/' \
+            --exclude '.env' \
+            --exclude 'datos/' \
+            --exclude 'logs/' \
+            --exclude 'node_modules/' \
+            --exclude 'publico/recursos/subidas/' \
+            --exclude 'scratch/' \
+            -e "ssh -p $PUERTO_SSH" \
+            ./ "$SSH_USER@$SSH_HOST:$DESTINO/"
+
+      - name: Instalar y reiniciar aplicación
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          APP_DIR: ${{ secrets.APP_DIR }}
+        run: |
+          PUERTO_SSH="${SSH_PORT:-22}"
+          DESTINO="${APP_DIR:-/srv/ecosistema-educativo}"
+          ssh -p "$PUERTO_SSH" "$SSH_USER@$SSH_HOST" \
+            "cd '$DESTINO' && npm ci --omit=dev && mkdir -p logs && pm2 startOrReload ecosystem.config.cjs --update-env && pm2 save"

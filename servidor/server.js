@@ -7,6 +7,8 @@ import * as almacen from './almacen.js';
 import { puede } from './permisos.js';
 import { aplicar } from './ganchos.js';
 
+import { cargarUsuario } from './auth.js';
+
 dotenv.config();
 
 const app = express();
@@ -15,14 +17,22 @@ const PUERTO = process.env.PUERTO || 3000;
 // Servir archivos estáticos de publico/
 app.use(express.static(path.resolve('publico')));
 
+// Soporte CORS para clientes y peticiones API
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // Límite de 1 MB para payloads JSON
 app.use(express.json({ limit: '1mb' }));
 
-// Middleware provisional cargarUsuario
-app.use((req, res, next) => {
-  req.usuario = null;
-  next();
-});
+// Middleware de autenticación y sesión
+app.use(cargarUsuario);
 
 // Envoltura para capturar errores asíncronos
 const asyncManejar = (fn) => (req, res, next) => {
@@ -166,7 +176,9 @@ app.delete('/api/:col/:id', asyncManejar(async (req, res) => {
     throw err;
   }
 
+  await aplicar(col, 'antesDeEliminar', anterior, req.usuario);
   const eliminado = await almacen.eliminar(col, id);
+  await aplicar(col, 'despuesDeEliminar', eliminado, req.usuario);
   res.json(eliminado);
 }));
 

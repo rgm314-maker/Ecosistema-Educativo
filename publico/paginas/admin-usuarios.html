@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración de Usuarios · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/admin-usuarios.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="pila" style="gap: var(--espacio-xs);">
+      <h1>Gestión de Usuarios</h1>
+      <p>Administra los roles, acceso y seguridad de las cuentas registradas en el ecosistema educativo.</p>
+    </div>
+
+    <!-- Barra de filtros -->
+    <section class="admin-filtros" aria-label="Filtros de usuarios">
+      <div class="admin-filtros__grupo">
+        <div class="admin-filtros__buscador">
+          <label for="filtroTexto" class="sr-only">Buscar usuario</label>
+          <input
+            type="search"
+            id="filtroTexto"
+            placeholder="Buscar por nombre, apellido o correo..."
+            aria-label="Buscar por nombre, apellido o correo"
+          >
+        </div>
+
+        <div class="admin-filtros__rol">
+          <label for="filtroRol" class="sr-only">Filtrar por rol</label>
+          <select id="filtroRol" aria-label="Filtrar por rol">
+            <option value="">Todos los roles</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="docente">Docente</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="admin-filtros__conteo" id="conteoUsuarios" aria-live="polite">
+        Mostrando 0 usuarios
+      </div>
+    </section>
+
+    <!-- Tabla de usuarios -->
+    <div class="admin-tabla-contenedor">
+      <table class="admin-tabla" id="tablaUsuarios">
+        <thead>
+          <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTablaUsuarios">
+          <!-- Inserción dinámica de usuarios -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="/js/modulos/admin-usuarios.js"></script>
+</body>
+</html>

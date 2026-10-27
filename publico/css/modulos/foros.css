@@ -1,0 +1,9 @@
+.foros__cabecera { display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-m); flex-wrap: wrap; }
+.foros__cabecera h1 { margin: 0; }
+.foros__filtros { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-columna-min)), 1fr)); gap: var(--espacio-m); }
+.foro-hilo { display: grid; gap: var(--espacio-s); text-decoration: none; color: var(--texto); }
+.foro-hilo__cabecera, .foro-hilo__meta { display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-s); flex-wrap: wrap; }
+.foro-hilo__titulo { color: var(--primario); margin: 0; font-size: var(--texto-l); }
+.foro-hilo__etiquetas { display: flex; gap: var(--espacio-xs); flex-wrap: wrap; }
+#modal-hilo { width: min(100%, var(--ancho-modal-max)); border: 0; border-radius: var(--radio-l); padding: var(--espacio-l); }
+#modal-hilo::backdrop { background: var(--color-overlay); }

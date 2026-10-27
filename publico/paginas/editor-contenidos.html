@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de Contenidos · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-contenidos.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <!-- Barra superior con selector de asignatura -->
+    <section class="editor-barra-superior" aria-label="Selección de materia">
+      <div class="editor-selector-asig">
+        <label for="selectAsignatura" style="font-weight: var(--peso-negrita); color: var(--primario);">
+          Asignatura:
+        </label>
+        <select id="selectAsignatura" style="min-width: 240px;">
+          <option value="">Cargando asignaturas...</option>
+        </select>
+      </div>
+
+      <div id="infoAsignatura" style="font-size: var(--texto-s); color: var(--texto-suave);">
+        <!-- Meta info de la asignatura -->
+      </div>
+    </section>
+
+    <!-- Grid de dos paneles: Unidades y Temas -->
+    <div class="editor-grid">
+      <!-- Panel de Unidades -->
+      <section class="panel-editor" id="panelUnidades" aria-labelledby="tituloUnidades">
+        <div class="panel-editor__cabecera">
+          <h2 class="panel-editor__titulo" id="tituloUnidades">Unidades</h2>
+          <button type="button" class="btn btn--primario btn--pequeno" id="btnNuevaUnidad">
+            + Nueva Unidad
+          </button>
+        </div>
+
+        <ul class="lista-items-editor" id="listaUnidades" aria-live="polite">
+          <!-- Inserción dinámica de unidades -->
+        </ul>
+      </section>
+
+      <!-- Panel de Temas -->
+      <section class="panel-editor" id="panelTemas" aria-labelledby="tituloTemas">
+        <div class="panel-editor__cabecera">
+          <h2 class="panel-editor__titulo" id="tituloTemas">Temas</h2>
+          <button type="button" class="btn btn--primario btn--pequeno" id="btnNuevoTema" disabled>
+            + Nuevo Tema
+          </button>
+        </div>
+
+        <ul class="lista-items-editor" id="listaTemas" aria-live="polite">
+          <!-- Inserción dinámica de temas al seleccionar unidad -->
+        </ul>
+      </section>
+    </div>
+    <input type="file" id="inputSubirMaterialContenidos" style="display: none;" accept=".pdf,.doc,.docx,.mp3,image/*">
+  </main>
+
+  <script type="module" src="/js/modulos/editor-contenidos.js"></script>
+</body>
+</html>

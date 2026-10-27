@@ -1,0 +1,150 @@
+/* publico/css/modulos/tema.css */
+/* Estilos para la visualización del contenido del tema por el estudiante */
+
+/* Migas de pan */
+.migas {
+  font-size: var(--texto-s);
+  color: var(--texto-suave);
+  margin-bottom: var(--espacio-m);
+}
+
+.migas__lista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.migas__lista li:not(:last-child)::after {
+  content: "/";
+  margin-left: var(--espacio-xs);
+  color: var(--texto-suave);
+  opacity: 0.6;
+}
+
+.migas__lista a {
+  color: var(--primario);
+  text-decoration: none;
+}
+
+.migas__lista a:hover {
+  text-decoration: underline;
+}
+
+.migas__lista [aria-current="page"] {
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+}
+
+/* Cabecera del tema */
+.tema-encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  padding: var(--espacio-l);
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.tema-encabezado__superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  flex-wrap: wrap;
+}
+
+/* Secciones del tema */
+.tema-seccion {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.tema-seccion__titulo {
+  font-size: var(--texto-l);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  margin: 0;
+  padding-bottom: var(--espacio-s);
+  border-bottom: var(--borde-fino) solid var(--borde);
+}
+
+.tema-resumen-cuerpo {
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-amplio);
+  color: var(--texto);
+}
+
+.tema-resumen-cuerpo p {
+  margin-bottom: var(--espacio-m);
+}
+
+.tema-resumen-cuerpo ul {
+  padding-left: var(--espacio-l);
+  margin-bottom: var(--espacio-m);
+}
+
+/* Recursos interactivos */
+.recursos-galeria {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.recurso-video-contenedor {
+  width: 100%;
+  max-width: 760px;
+  border-radius: var(--radio-m);
+  overflow: hidden;
+  box-shadow: var(--sombra-1);
+  background-color: #000;
+}
+
+.recurso-video-contenedor iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.recursos-enlaces-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+}
+
+/* Práctica interactiva */
+.grid-actividades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--espacio-m);
+}
+
+.tarjeta-actividad {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+.tarjeta-actividad:hover {
+  transform: translateY(-2px);
+  border-color: var(--primario);
+}

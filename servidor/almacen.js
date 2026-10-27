@@ -33,6 +33,19 @@ function encolarEscritura(ruta, operacion) {
   return siguiente;
 }
 
+async function reemplazarTemporal(origen, destino) {
+  const reintentables = new Set(['EPERM', 'EBUSY', 'EACCES']);
+  for (let intento = 0; intento < 6; intento++) {
+    try {
+      await fs.rename(origen, destino);
+      return;
+    } catch (error) {
+      if (!reintentables.has(error.code) || intento === 5) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 25 * (intento + 1)));
+    }
+  }
+}
+
 async function asegurarRespaldoDiario() {
   const hoy = new Date().toISOString().slice(0, 10);
   if (ultimoRespaldoDia === hoy) return;
@@ -84,7 +97,11 @@ async function asegurarRespaldoDiario() {
 
 function generarId(col, lista) {
   const parteColeccion = col.split('/')[0];
-  const prefijo = parteColeccion.replace(/[^a-z]/g, '').slice(0, 3).padEnd(3, 'x');
+  const prefijosEspecificos = {
+    'foros-hilos': 'fhi',
+    'foros-respuestas': 'fre'
+  };
+  const prefijo = prefijosEspecificos[parteColeccion] || parteColeccion.replace(/[^a-z]/g, '').slice(0, 3).padEnd(3, 'x');
 
   let maxNum = 0;
   for (const item of lista) {
@@ -123,7 +140,7 @@ export async function escribir(col, lista) {
     const tmp = `${ruta}.${Date.now()}_${Math.random().toString(36).slice(2)}.tmp`;
     const contenido = JSON.stringify(lista, null, 2);
     await fs.writeFile(tmp, contenido, 'utf-8');
-    await fs.rename(tmp, ruta);
+    await reemplazarTemporal(tmp, ruta);
     return lista;
   });
 }
@@ -236,4 +253,11 @@ export async function leerConfig(nombre) {
     }
     throw err;
   }
+}
+
+export async function escribirConfig(nombre, obj) {
+  const ruta = path.join(DIR_DATOS, 'config', `${nombre}.json`);
+  await fs.mkdir(path.dirname(ruta), { recursive: true });
+  await fs.writeFile(ruta, JSON.stringify(obj, null, 2), 'utf-8');
+  return obj;
 }

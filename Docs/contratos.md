@@ -42,7 +42,7 @@ avatar.js    montarAvatar() · decir(texto)
 almacen.js   leer(col) · escribir(col, lista) · agregar(col, reg) → reg (asigna id y fecha)
              actualizar(col, id, cambios) → reg · eliminar(col, id)
              buscar(col, filtro) → Array · anexarLinea(archivo, obj)
-             leerLineas(archivo) → Array · leerConfig(nombre) → Object
+             leerLineas(archivo) → Array · leerConfig(nombre) → Object · escribirConfig(nombre, obj) → Object
              · col admite subcarpeta ("mensajes/con_000001"). Id: 3 letras + "_" + 6 dígitos.
 permisos.js  puede(usuario, accion "leer" | "escribir", col, registro) → boolean
 ganchos.js   carga servidor/ganchos/<col>.js → { filtrarLista(lista, usuario),
@@ -77,7 +77,8 @@ Notif.    GET /api/notificaciones · POST /api/notificaciones
           POST /api/notificaciones/:id/leida · POST /api/notificaciones/leidas
 Alertas   GET /api/alertas?grupoId= → { alertas, mensajesApoyo }
 IA        POST /api/ia/:tarea   tareas: generar-glosario, generar-preguntas, generar-escenario,
-          tutor, rol-simulacion, evaluar-rol · GET /api/ia/prueba (admin)
+          tutor, rol-simulacion, evaluar-rol · GET|POST /api/ia/prueba (admin)
+          GET /api/ia/modelos (docente/admin) · GET|PUT /api/ia/config (admin)
 Quiz      GET /api/quiz/estado?temaId= · POST /api/quiz/iniciar · POST /api/quiz/responder
           POST /api/quiz/finalizar
 Agenda    GET /api/agenda/recordatorios
@@ -140,7 +141,7 @@ simulaciones      temaId, titulo, modo(escenarios|rol), estado, escenaInicial,
 permisos.json            { "<col>": { "leer": [...], "escribir": [...] } }
                          valores: publico, sesion, estudiante, docente, admin, propio, servidor
 ajustes.json             nombrePlataforma, maxSubidaMB, limiteIADiario, limiteTutorDiario,
-                         chatEntreEstudiantes, alertasAdmin
+                         chatEntreEstudiantes, alertasAdmin, iaProveedor, iaModelo, iaClave
 reglas-gamificacion.json puntos, bonoSinErrores, unicas, requiereAprobado, maxDiario,
                          limiteIntentosHora, quiz{...}, certificado{...}   (Anexo A)
 reglas-alertas.json      promedioBajo, fallosQuiz, inactividad, vencidas, mensajesApoyo[]

@@ -1,0 +1,15 @@
+/* publico/css/modulos/ingreso.css */
+/* Estilos específicos de la página de ingreso */
+
+.ingreso-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ingreso-tarjeta {
+  max-width: 440px; /* PROVISIONAL */
+  width: 100%;
+  margin-inline: auto;
+}

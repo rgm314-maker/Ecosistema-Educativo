@@ -1,0 +1,13 @@
+.tareas__cabecera { display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-m); flex-wrap: wrap; }
+.tareas__cabecera h1 { margin: 0; }
+.tareas__lista { display: grid; gap: var(--espacio-m); }
+.tarea__cabecera { display: flex; justify-content: space-between; align-items: start; gap: var(--espacio-m); flex-wrap: wrap; }
+.tarea__cabecera h2 { margin: 0; }
+.tarea__acciones { display: flex; gap: var(--espacio-s); flex-wrap: wrap; }
+.tarea__entrega { border-top: var(--borde-fino) solid var(--borde); padding-top: var(--espacio-m); }
+.tarea--vencida { border-color: var(--error); }
+.tarea__calificacion { padding: var(--espacio-m); border-radius: var(--radio-m); background: var(--info-fondo); }
+.tarea__entregas { display: grid; gap: var(--espacio-s); border-top: var(--borde-fino) solid var(--borde); padding-top: var(--espacio-m); }
+.tarea__entrega-docente { padding: var(--espacio-m); border: var(--borde-fino) solid var(--borde); border-radius: var(--radio-m); }
+.tarea__nota { width: min(100%, var(--ancho-columna-min)); }
+@media (max-width: 480px) { .tarea__acciones { flex-direction: column; align-items: stretch; } }

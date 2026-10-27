@@ -1,0 +1,292 @@
+/* publico/css/modulos/canciones.css */
+.canciones-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .canciones-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Columna de lista y filtros */
+.panel-canciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.filtros-canciones {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.lista-canciones-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.item-cancion {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  padding: var(--espacio-m);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-m);
+  transition: transform var(--transicion), border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.item-cancion:hover {
+  border-color: var(--primario);
+  transform: translateX(2px);
+  box-shadow: var(--sombra-1);
+}
+
+.item-cancion--activa {
+  border-color: var(--primario);
+  border-left-width: var(--borde-destacado);
+  background-color: var(--fondo);
+}
+
+.item-cancion__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.item-cancion__titulo {
+  font-size: var(--texto-s);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-cancion__meta {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs);
+}
+
+/* Columna del Reproductor y Letra */
+.panel-reproductor-letra {
+  position: sticky;
+  top: var(--espacio-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.caja-reproductor {
+  background: linear-gradient(145deg, var(--superficie), var(--fondo));
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.reproductor-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--espacio-s);
+}
+
+.reproductor-titulo {
+  margin: 0;
+  font-size: var(--texto-l);
+  color: var(--primario);
+}
+
+.reproductor-autoria {
+  font-size: var(--texto-xs);
+  color: var(--texto-suave);
+}
+
+/* Barra de progreso de audio */
+.reproductor-progreso-fila {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+.reproductor-tiempo {
+  font-size: var(--texto-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--texto-suave);
+  min-width: 44px;
+}
+
+.reproductor-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background-color: var(--borde);
+  border-radius: var(--radio-completo);
+  outline: none;
+  cursor: pointer;
+  transition: background-color var(--transicion);
+}
+
+.reproductor-slider:focus-visible {
+  outline: var(--borde-destacado) solid var(--acento);
+}
+
+.reproductor-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radio-completo);
+  background-color: var(--primario);
+  cursor: pointer;
+  transition: transform var(--transicion);
+}
+
+.reproductor-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background-color: var(--secundario);
+}
+
+.reproductor-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radio-completo);
+  background-color: var(--primario);
+  border: none;
+  cursor: pointer;
+}
+
+/* Controles de reproducción */
+.reproductor-botones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  flex-wrap: wrap;
+}
+
+.btn-play-pause {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radio-completo);
+  background-color: var(--primario);
+  color: var(--texto-inverso);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--texto-l);
+  box-shadow: var(--sombra-1);
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.btn-play-pause:hover {
+  background-color: var(--secundario);
+  transform: scale(1.05);
+}
+
+.control-volumen {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+.volumen-slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--borde);
+  border-radius: var(--radio-completo);
+  outline: none;
+  cursor: pointer;
+}
+
+.volumen-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radio-completo);
+  background-color: var(--primario);
+  cursor: pointer;
+}
+
+/* Caja de Letras */
+.caja-letra {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.caja-letra__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--borde-fino) solid var(--borde);
+  padding-bottom: var(--espacio-s);
+  margin-bottom: var(--espacio-m);
+}
+
+.caja-letra__cuerpo {
+  max-height: 380px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-holgado, 1.8);
+  padding-right: var(--espacio-s);
+}
+
+.linea-lrc {
+  padding: var(--espacio-xs) var(--espacio-s);
+  border-radius: var(--radio-m);
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion), transform var(--transicion);
+  user-select: none;
+}
+
+.linea-lrc:hover {
+  background-color: var(--fondo);
+}
+
+.linea-lrc--activa {
+  background-color: var(--info-fondo);
+  color: var(--primario);
+  font-weight: var(--peso-negrita);
+  border-left: var(--borde-destacado) solid var(--acento);
+  transform: scale(1.02);
+  padding-left: calc(var(--espacio-s) - var(--borde-destacado));
+}
+
+.letra-estatica {
+  white-space: pre-wrap;
+  color: var(--texto);
+  font-family: var(--fuente-base);
+}

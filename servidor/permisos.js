@@ -29,7 +29,10 @@ export async function puede(usuario, accion, col, registro = null) {
         return true;
       }
       if (regla === 'propio') {
-        if (registro && (registro.usuarioId === usuario.id || registro.id === usuario.id)) {
+        if (!registro) {
+          return true;
+        }
+        if (registro.usuarioId === usuario.id || registro.id === usuario.id) {
           return true;
         }
       }

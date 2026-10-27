@@ -1,0 +1,46 @@
+/* publico/css/modulos/editor-cancion.css */
+.editor-cancion-form {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  max-width: 860px;
+  margin-inline: auto;
+  box-shadow: var(--sombra-1);
+}
+
+.zona-subida-audio {
+  display: flex;
+  gap: var(--espacio-s);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.previa-audio-caja {
+  margin-top: var(--espacio-s);
+  padding: var(--espacio-s) var(--espacio-m);
+  background-color: var(--fondo);
+  border-radius: var(--radio-m);
+  border: var(--borde-fino) solid var(--borde);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+.previa-audio-caja audio {
+  width: 100%;
+  max-width: 480px;
+  height: 36px;
+}
+
+.editor-grid-letras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-m);
+}
+
+@media (max-width: 768px) {
+  .editor-grid-letras {
+    grid-template-columns: 1fr;
+  }
+}

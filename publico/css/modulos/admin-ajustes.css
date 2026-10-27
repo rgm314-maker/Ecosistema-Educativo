@@ -1,0 +1,100 @@
+/* publico/css/modulos/admin-ajustes.css */
+/* Estilos para el panel de configuración de IA */
+
+.ajustes-cabecera {
+  margin-bottom: var(--espacio-l);
+}
+
+.ajustes-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: var(--texto-2xl);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  margin-bottom: var(--espacio-xs);
+}
+
+.ajustes-subtitulo {
+  color: var(--texto-suave);
+  font-size: var(--texto-m);
+  line-height: var(--interlineado-base);
+  margin: 0;
+}
+
+.ajustes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (min-width: 840px) {
+  .ajustes-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.modelos-rapidos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-xs);
+}
+
+.btn-modelo-sugerido {
+  cursor: pointer;
+  border: 1px solid var(--borde);
+  background-color: var(--fondo);
+  transition: all var(--transicion);
+}
+
+.btn-modelo-sugerido:hover {
+  border-color: var(--primario);
+  background-color: var(--superficie);
+}
+
+.ajustes-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-m);
+  justify-content: flex-end;
+  margin-top: var(--espacio-l);
+  padding-top: var(--espacio-m);
+  border-top: 1px solid var(--borde);
+}
+
+.resultado-prueba-caja {
+  margin-top: var(--espacio-m);
+  padding: var(--espacio-m);
+  border-radius: var(--radio-m);
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+}
+
+.resultado-prueba-caja--exito {
+  background-color: var(--exito-fondo);
+  border: 1px solid var(--exito);
+  color: var(--exito);
+}
+
+.resultado-prueba-caja--error {
+  background-color: var(--error-fondo);
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.guia-pasos {
+  margin: 0;
+  padding-left: var(--espacio-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  font-size: var(--texto-s);
+  line-height: var(--interlineado-base);
+}
+
+.alerta--info {
+  background-color: var(--info-fondo);
+  border: 1px solid var(--info);
+  color: var(--texto);
+}

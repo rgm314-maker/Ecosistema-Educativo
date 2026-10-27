@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asignatura · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/asignatura.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <!-- Cabecera de la materia con progreso -->
+    <header class="asignatura-cabecera" id="cabeceraAsignatura">
+      <div class="asignatura-cabecera__fila">
+        <a href="/paginas/asignaturas.html" class="btn btn--secundario btn--pequeno">
+          ← Volver a Mis asignaturas
+        </a>
+        <span class="chip chip--primario" id="chipNivelMateria">Nivel 1</span>
+      </div>
+
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 id="tituloMateria">Cargando asignatura...</h1>
+        <p id="descMateria" style="color: var(--texto-suave); margin: 0;"></p>
+      </div>
+
+      <div class="pila" style="gap: var(--espacio-xs); max-width: 480px;">
+        <div style="display: flex; justify-content: space-between; font-size: var(--texto-xs);">
+          <span>Progreso curricular</span>
+          <strong id="porcentajeMateria">0%</strong>
+        </div>
+        <div class="barra-progreso" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="barraProgresoMateria">
+          <div class="barra-progreso__relleno" id="rellenoProgresoMateria" style="width: 0%;"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Lista de Unidades y Temas -->
+    <section class="pila" id="contenedorUnidades" style="gap: var(--espacio-l);" aria-live="polite">
+      <!-- Inserción dinámica -->
+    </section>
+  </main>
+
+  <script type="module" src="/js/modulos/asignatura.js"></script>
+</body>
+</html>

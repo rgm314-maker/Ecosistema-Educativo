@@ -1,0 +1,58 @@
+/* publico/css/modulos/actividades.css */
+.grid-actividades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--espacio-l);
+  margin-top: var(--espacio-l);
+}
+
+.tarjeta-actividad {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  box-shadow: var(--sombra-1);
+  transition: transform var(--transicion), box-shadow var(--transicion), border-color var(--transicion);
+}
+
+.tarjeta-actividad:hover {
+  transform: translateY(-2px);
+  border-color: var(--primario);
+  box-shadow: var(--sombra-2);
+}
+
+.tarjeta-actividad__cabecera {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+.tarjeta-actividad__icono {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radio-m);
+  background-color: var(--fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--texto-2xl);
+  border: var(--borde-fino) solid var(--borde);
+}
+
+.tarjeta-actividad__titulo {
+  font-size: var(--texto-l);
+  color: var(--primario);
+  margin: 0;
+}
+
+.tarjeta-actividad__desc {
+  font-size: var(--texto-s);
+  color: var(--texto);
+  line-height: var(--interlineado-base);
+  margin: 0;
+  flex: 1;
+}

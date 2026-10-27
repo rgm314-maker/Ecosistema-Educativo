@@ -1,0 +1,153 @@
+.editor-simulacion,
+.editor-simulacion__contenido,
+.editor-simulacion__escenas,
+.editor-simulacion__rol,
+.editor-simulacion__rubrica,
+.editor-simulacion__criterios {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.editor-simulacion__cabecera,
+.editor-simulacion__acciones,
+.editor-simulacion__herramientas,
+.editor-simulacion__escena-cabecera,
+.editor-simulacion__opcion-cabecera,
+.editor-simulacion__imagen-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+}
+
+.editor-simulacion__cabecera h1,
+.editor-simulacion__cabecera p,
+.editor-simulacion h2,
+.editor-simulacion h3,
+.editor-simulacion p {
+  margin: 0;
+}
+
+.editor-simulacion__acciones {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.editor-simulacion__generales {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-m);
+}
+
+.editor-simulacion__herramientas {
+  flex-direction: row;
+}
+
+.editor-simulacion__inicial {
+  max-width: var(--ancho-modal-max);
+}
+
+.editor-simulacion__escena {
+  scroll-margin-top: var(--espacio-xl);
+}
+
+.editor-simulacion__escena-cabecera {
+  padding-bottom: var(--espacio-s);
+  border-bottom: var(--borde-fino) solid var(--borde);
+}
+
+.editor-simulacion__imagen-actual {
+  max-width: var(--ancho-modal-max);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+}
+
+.editor-simulacion__opciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.editor-simulacion__opcion {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--espacio-m);
+  padding: var(--espacio-m);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--fondo);
+}
+
+.editor-simulacion__criterio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 10rem) auto;
+  align-items: end;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--fondo);
+}
+
+.editor-simulacion__opcion .editor-simulacion__consecuencia {
+  grid-column: 1 / -1;
+}
+
+.editor-simulacion__mapa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.editor-simulacion__mapa-item {
+  overflow-wrap: anywhere;
+}
+
+.editor-simulacion__mapa-item--nivel-1 { padding-left: var(--espacio-m); }
+.editor-simulacion__mapa-item--nivel-2 { padding-left: calc(var(--espacio-m) * 2); }
+.editor-simulacion__mapa-item--nivel-3 { padding-left: calc(var(--espacio-m) * 3); }
+.editor-simulacion__mapa-item--nivel-4 { padding-left: calc(var(--espacio-m) * 4); }
+.editor-simulacion__mapa-item--nivel-5 { padding-left: calc(var(--espacio-m) * 5); }
+.editor-simulacion__mapa-item--nivel-6 { padding-left: calc(var(--espacio-m) * 6); }
+.editor-simulacion__mapa-item--nivel-7 { padding-left: calc(var(--espacio-m) * 7); }
+.editor-simulacion__mapa-item--nivel-8 { padding-left: calc(var(--espacio-m) * 8); }
+.editor-simulacion__mapa-item--nivel-9 { padding-left: calc(var(--espacio-m) * 9); }
+.editor-simulacion__mapa-item--nivel-10 { padding-left: calc(var(--espacio-m) * 10); }
+
+.editor-simulacion__mapa-item--final {
+  color: var(--exito);
+  font-weight: var(--peso-seminegrita);
+}
+
+.editor-simulacion__mapa-item--advertencia {
+  color: var(--advertencia);
+}
+
+.editor-simulacion__errores {
+  margin: var(--espacio-s) 0 0;
+}
+
+@media (max-width: 48rem) {
+  .editor-simulacion__cabecera,
+  .editor-simulacion__herramientas,
+  .editor-simulacion__escena-cabecera,
+  .editor-simulacion__opcion-cabecera,
+  .editor-simulacion__imagen-acciones {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .editor-simulacion__generales,
+  .editor-simulacion__opcion,
+  .editor-simulacion__criterio {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-simulacion__opcion .editor-simulacion__consecuencia {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,64 @@
+.panel-docente {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.panel-docente__cabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espacio-l);
+}
+
+.panel-docente__cabecera h1,
+.panel-docente__cabecera p,
+.panel-docente__tutor h2,
+.panel-docente__tutor h3,
+.panel-docente__tutor p {
+  margin: 0;
+}
+
+.panel-docente__grupo {
+  max-width: var(--ancho-modal-max);
+}
+
+.panel-docente__tutor {
+  gap: var(--espacio-l);
+}
+
+.panel-docente__rejilla {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-l);
+}
+
+.panel-docente__rejilla > section {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.panel-docente__grafico {
+  position: relative;
+  min-height: calc(var(--espacio-2xl) * 6);
+}
+
+.panel-docente__grafico .vacio__texto {
+  display: grid;
+  min-height: calc(var(--espacio-2xl) * 4);
+  place-items: center;
+  text-align: center;
+}
+
+@media (max-width: 48rem) {
+  .panel-docente__cabecera {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .panel-docente__rejilla {
+    grid-template-columns: 1fr;
+  }
+}

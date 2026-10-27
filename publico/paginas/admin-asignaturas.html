@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asignaturas · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/admin-asignaturas.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="asignaturas-cabecera">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1>Gestión de Asignaturas</h1>
+        <p>Administra las materias curriculares y niveles formativos de la institución.</p>
+      </div>
+      <button type="button" class="btn btn--primario" id="btnNuevaAsignatura">
+        + Nueva Asignatura
+      </button>
+    </div>
+
+    <!-- Contenedor dinámico de tarjetas -->
+    <div class="asignaturas-grid" id="gridAsignaturas" aria-live="polite">
+      <!-- Inserción dinámica -->
+    </div>
+  </main>
+
+  <script type="module" src="/js/modulos/admin-asignaturas.js"></script>
+</body>
+</html>

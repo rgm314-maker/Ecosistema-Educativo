@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificar Certificado · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/verificar.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor">
+    <div class="verificar-contenedor">
+      <header class="verificar-cabecera">
+        <h1 class="verificar-titulo">Verificación de Certificados</h1>
+        <p class="verificar-subtitulo">
+          Comprueba la validez y autenticidad de los diplomas oficiales emitidos por el Ecosistema Educativo Digital.
+        </p>
+      </header>
+
+      <section class="tarjeta verificar-tarjeta">
+        <form id="form-verificar" class="verificar-formulario" novalidate>
+          <div class="campo">
+            <label for="codigo-input" class="etiqueta">Código de verificación del certificado</label>
+            <div class="verificar-input-grupo">
+              <input
+                type="text"
+                id="codigo-input"
+                name="codigo"
+                class="campo-texto"
+                placeholder="Ejemplo: EE-2026-A1B2C3"
+                autocomplete="off"
+                spellcheck="false"
+                required
+              >
+              <button type="submit" id="btn-verificar" class="boton boton--primario">
+                Verificar
+              </button>
+            </div>
+            <span class="campo-ayuda">Ingresa el código alfanumérico que aparece en la parte inferior del documento.</span>
+          </div>
+        </form>
+
+        <div id="resultado-verificacion" class="verificar-resultado" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/verificar.js"></script>
+</body>
+</html>

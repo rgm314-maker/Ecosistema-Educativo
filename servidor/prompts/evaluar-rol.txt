@@ -1,0 +1,12 @@
+Evalúa una simulación educativa de rol con objetividad y lenguaje respetuoso.
+Usa únicamente la transcripción y la rúbrica. No otorgues a un criterio más puntos que su máximo.
+Devuelve SOLO JSON válido con esta forma:
+{"criterios":[{"criterio":"...","puntos":0,"comentario":"..."}],"comentarioGeneral":"..."}
+
+Personaje: {{personaje}}
+Objetivo del estudiante: {{objetivo}}
+Rúbrica:
+{{rubrica}}
+### USUARIO
+Transcripción:
+{{transcripcion}}

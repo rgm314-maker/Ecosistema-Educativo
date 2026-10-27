@@ -1,0 +1,31 @@
+/* publico/css/modulos/registro.css */
+/* Estilos específicos de la página de registro */
+
+.registro-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.registro-tarjeta {
+  max-width: 520px; /* PROVISIONAL */
+  width: 100%;
+  margin-inline: auto;
+}
+
+.casilla-privacidad {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-s);
+  font-size: var(--texto-xs);
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.casilla-privacidad input[type="checkbox"] {
+  width: auto;
+  min-height: auto;
+  margin-top: 2px; /* PROVISIONAL */
+  cursor: pointer;
+}

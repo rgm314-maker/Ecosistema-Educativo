@@ -1,0 +1,126 @@
+.simulador {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.simulador__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+}
+
+.simulador__cabecera h1,
+.simulador__cabecera p,
+.simulador__escena h2,
+.simulador__informe h2,
+.simulador__informe p {
+  margin: 0;
+}
+
+.simulador__etiqueta {
+  color: var(--acento);
+  font-weight: var(--peso-negrita);
+}
+
+.simulador__marcadores,
+.simulador__opciones,
+.simulador__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+}
+
+.simulador__escena,
+.simulador__informe,
+.simulador__rol,
+.simulador__caso,
+.simulador__chat,
+.simulador__mensajes,
+.simulador__evaluacion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.simulador__texto {
+  line-height: var(--interlineado-amplio);
+}
+
+.simulador__imagen {
+  width: 100%;
+  max-height: calc(var(--espacio-2xl) * 8);
+  object-fit: cover;
+  border-radius: var(--radio-l);
+  border: var(--borde-fino) solid var(--borde);
+}
+
+.simulador__opcion {
+  flex: 1 1 var(--ancho-columna-min);
+  white-space: normal;
+}
+
+.simulador__decision {
+  padding: var(--espacio-m);
+  border-left: var(--borde-destacado) solid var(--primario);
+  border-radius: var(--radio-m);
+  background: var(--fondo);
+}
+
+.simulador__decision p {
+  margin: var(--espacio-xs) 0 0;
+}
+
+.simulador__mensajes {
+  min-height: calc(var(--espacio-2xl) * 5);
+  max-height: calc(var(--espacio-2xl) * 9);
+  overflow-y: auto;
+  padding: var(--espacio-m);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  background: var(--fondo);
+}
+
+.simulador__mensaje {
+  max-width: var(--ancho-modal-max);
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio-l);
+  background: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+}
+
+.simulador__mensaje--estudiante {
+  align-self: flex-end;
+  background: var(--info-fondo);
+  border-color: var(--primario);
+}
+
+.simulador__mensaje-texto > :last-child {
+  margin-bottom: 0;
+}
+
+.simulador__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+}
+
+.simulador__formulario .simulador__acciones {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.simulador__criterio-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+}
+
+@media (max-width: 48rem) {
+  .simulador__cabecera {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

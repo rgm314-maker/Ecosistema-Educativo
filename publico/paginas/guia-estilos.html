@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de Estilos y Design System · UNEMI Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="encabezado__interior">
+      <div class="fila">
+        <button type="button" class="btn btn--secundario btn--pequeno" id="btnAlternarMenu" aria-label="Abrir o cerrar menú" aria-expanded="false">
+          ☰ Menú
+        </button>
+        <strong>Ecosistema Educativo UNEMI</strong>
+        <span class="chip chip--acento">Design System v1.0</span>
+      </div>
+      <nav class="fila" aria-label="Navegación superior">
+        <a href="#botones">Botones</a>
+        <a href="#tarjetas">Tarjetas</a>
+        <a href="#formularios">Formularios</a>
+        <a href="#alertas">Alertas</a>
+        <a href="#modales">Modales</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="app-layout" style="margin-block: var(--espacio-l);">
+    <!-- Menú lateral navegable -->
+      <aside class="menu" id="menuLateral" aria-label="Navegación de componentes">
+        <h3 style="color: var(--texto-inverso); font-size: var(--texto-m); margin-bottom: var(--espacio-s);">Componentes</h3>
+        <a href="#colores" class="menu__item menu__item--activo">01. Colores y Tokens</a>
+        <a href="#tipografia" class="menu__item">02. Tipografía</a>
+        <a href="#botones" class="menu__item">03. Botones</a>
+        <a href="#tarjetas" class="menu__item">04. Tarjetas</a>
+        <a href="#formularios" class="menu__item">05. Campos y Forms</a>
+        <a href="#alertas" class="menu__item">06. Alertas y Toasts</a>
+        <a href="#tablas" class="menu__item">07. Tablas</a>
+        <a href="#indicadores" class="menu__item">08. Insignias y Chips</a>
+        <a href="#progreso-carga" class="menu__item">09. Progreso y Carga</a>
+        <a href="#estados-dialogos" class="menu__item">10. Modales y Vacío</a>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main id="contenido" class="pila" style="flex: 1; min-width: 0;">
+        
+        <!-- Introducción -->
+        <section class="tarjeta">
+          <h1>Guía de Estilos y Componentes</h1>
+          <p>
+            Sistema de diseño accesible (WCAG 2.2 AA) derivado del Manual de Identidad Institucional de la
+            <strong>Universidad Estatal de Milagro (UNEMI)</strong>. Todos los estilos emplean exclusivamente
+            variables declaradas en <code>tokens.css</code> y clases de <code>componentes.css</code>.
+          </p>
+          <div class="fila">
+            <span class="chip chip--primario">Identidad Oficial</span>
+            <span class="chip">Contraste AA / AAA</span>
+            <span class="chip">Responsive ≥ 360 px</span>
+          </div>
+        </section>
+
+        <!-- 01. Colores y tokens -->
+        <section id="colores" class="tarjeta">
+          <h2>01. Paleta de Colores y Tokens</h2>
+          <p>Muestras cromáticas con contraste verificado para fondos y textos.</p>
+          <div class="grid-auto">
+            <div class="tarjeta" style="background-color: var(--primario); color: var(--texto-inverso);">
+              <strong>--primario (#002E45)</strong>
+              <small style="color: var(--fondo);">Azul institucional (14.2:1 con blanco)</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--primario-oscuro); color: var(--texto-inverso);">
+              <strong>--primario-oscuro (#1C3247)</strong>
+              <small style="color: var(--fondo);">Azul de fondo / diapositivas</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--secundario); color: var(--texto-inverso);">
+              <strong>--secundario (#264763)</strong>
+              <small style="color: var(--fondo);">Azul medio para interactividad</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--acento); color: var(--primario);">
+              <strong>--acento (#FF6900)</strong>
+              <small style="color: var(--primario);">Naranja UNEMI (4.9:1 con azul)</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--exito-fondo); color: var(--exito); border-color: var(--exito);">
+              <strong>--exito (#1D6540)</strong>
+              <small>Verde accesible en superficie</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--advertencia-fondo); color: var(--advertencia); border-color: var(--advertencia);">
+              <strong>--advertencia (#CD5500)</strong>
+              <small>Ámbar de precaución</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--error-fondo); color: var(--error); border-color: var(--error);">
+              <strong>--error (#C02626)</strong>
+              <small>Rojo de error / peligro</small>
+            </div>
+            <div class="tarjeta" style="background-color: var(--info-fondo); color: var(--info); border-color: var(--info);">
+              <strong>--info (#14648E)</strong>
+              <small>Azul informativo</small>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02. Tipografía -->
+        <section id="tipografia" class="tarjeta">
+          <h2>02. Jerarquía Tipográfica</h2>
+          <div class="pila">
+            <h1>Titular H1 (Display 40px)</h1>
+            <h2>Encabezado H2 (32px)</h2>
+            <h3>Subtítulo H3 (24px)</h3>
+            <h4>Sección H4 (20px)</h4>
+            <h5>Subsección H5 (16px)</h5>
+            <h6>Epígrafe H6 (14px)</h6>
+            <p>
+              Texto de párrafo regular (14px/16px) con fuente <strong>Poppins</strong>. Garantiza legibilidad y
+              armonía visual con el estándar editorial del portal institucional.
+            </p>
+            <p><small>Texto auxiliar y notas contextuales (12px, --texto-xs).</small></p>
+          </div>
+        </section>
+
+        <!-- 03. Botones -->
+        <section id="botones" class="tarjeta">
+          <h2>03. Botones (.btn)</h2>
+          <p>Variantes funcionales, tamaños y estados interactivos con foco accesible.</p>
+          <div class="fila">
+            <button type="button" class="btn btn--primario">Botón Primario</button>
+            <button type="button" class="btn btn--secundario">Botón Secundario</button>
+            <button type="button" class="btn btn--peligro">Botón Peligro</button>
+            <button type="button" class="btn btn--texto">Botón Texto</button>
+            <button type="button" class="btn btn--primario btn--pequeno">Botón Pequeño</button>
+            <button type="button" class="btn btn--secundario" disabled>Deshabilitado</button>
+          </div>
+        </section>
+
+        <!-- 04. Tarjetas -->
+        <section id="tarjetas" class="tarjeta">
+          <h2>04. Tarjetas (.tarjeta)</h2>
+          <div class="grid-auto">
+            <article class="tarjeta">
+              <h3>Unidad 1: Alfabetización Digital</h3>
+              <p>Módulo interactivo que comprende conceptos esenciales, componentes de hardware y software.</p>
+              <div class="fila" style="justify-content: space-between;">
+                <span class="chip chip--primario">Activo</span>
+                <button type="button" class="btn btn--primario btn--pequeno">Iniciar</button>
+              </div>
+            </article>
+
+            <article class="tarjeta">
+              <h3>Unidad 2: Ciudadanía y Redes</h3>
+              <p>Uso ético y seguro de las tecnologías de información y plataformas institucionales.</p>
+              <div class="fila" style="justify-content: space-between;">
+                <span class="chip">Próximamente</span>
+                <button type="button" class="btn btn--secundario btn--pequeno" disabled>Bloqueado</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 05. Formularios -->
+        <section id="formularios" class="tarjeta">
+          <h2>05. Campos de Formulario (.campo)</h2>
+          <form class="pila" onsubmit="event.preventDefault();">
+            <div class="grid-auto">
+              <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Belén Zambrano">
+              </div>
+
+              <div class="campo">
+                <label for="rol">Rol institucional</label>
+                <select id="rol" name="rol">
+                  <option value="estudiante">Estudiante</option>
+                  <option value="docente">Docente</option>
+                  <option value="admin">Administrador</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="correo">Correo electrónico con error</label>
+              <input type="email" id="correo" name="correo" value="correo-invalido@" aria-describedby="error-correo">
+              <span id="error-correo" class="campo__error">El formato del correo institucional es incorrecto.</span>
+            </div>
+
+            <div class="campo">
+              <label for="observaciones">Observaciones o consulta</label>
+              <textarea id="observaciones" name="observaciones" rows="3" placeholder="Escribe aquí tu consulta..."></textarea>
+            </div>
+
+            <div class="fila">
+              <button type="submit" class="btn btn--primario">Guardar información</button>
+              <button type="reset" class="btn btn--secundario">Limpiar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- 06. Alertas y Toasts -->
+        <section id="alertas" class="tarjeta">
+          <h2>06. Alertas (.alerta) y Toasts (.toast)</h2>
+          <div class="pila">
+            <div class="alerta alerta--info" role="status">
+              <div>
+                <strong>Información:</strong> El periodo de matriculación para el segundo semestre se encuentra abierto.
+              </div>
+            </div>
+
+            <div class="alerta alerta--exito" role="status">
+              <div>
+                <strong>Éxito:</strong> Tu actividad ha sido registrada satisfactoriamente con la calificación máxima.
+              </div>
+            </div>
+
+            <div class="alerta alerta--advertencia" role="alert">
+              <div>
+                <strong>Advertencia:</strong> Tu plazo de entrega para la tarea de inducción vence en 24 horas.
+              </div>
+            </div>
+
+            <div class="alerta alerta--error" role="alert">
+              <div>
+                <strong>Error:</strong> No se pudo verificar la credencial de acceso. Intenta nuevamente.
+              </div>
+            </div>
+
+            <div class="fila" style="margin-top: var(--espacio-s);">
+              <button type="button" class="btn btn--secundario" id="btnDispararToast">
+                Probar Toast Interactivo
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 07. Tablas -->
+        <section id="tablas" class="tarjeta">
+          <h2>07. Tablas (.tabla con desplazamiento táctil)</h2>
+          <p>Tabla con contenedor desplazable (<code>.tabla-contenedor</code>) en dispositivos móviles.</p>
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Asignatura</th>
+                  <th scope="col">Docente</th>
+                  <th scope="col">Nivel</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ASI_000001</td>
+                  <td>Competencias Digitales</td>
+                  <td>Ing. M. Villamar</td>
+                  <td>1er Semestre</td>
+                  <td><span class="chip chip--primario">Aprobada</span></td>
+                </tr>
+                <tr>
+                  <td>ASI_000002</td>
+                  <td>Metodología de la Investigación</td>
+                  <td>Dra. L. Morales</td>
+                  <td>1er Semestre</td>
+                  <td><span class="chip chip--acento">En curso</span></td>
+                </tr>
+                <tr>
+                  <td>ASI_000003</td>
+                  <td>Redes y Conectividad</td>
+                  <td>Mgs. R. Castro</td>
+                  <td>2do Semestre</td>
+                  <td><span class="chip">Pendiente</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 08. Insignias y Chips -->
+        <section id="indicadores" class="tarjeta">
+          <h2>08. Insignias (.insignia) y Chips (.chip)</h2>
+          <div class="fila" style="align-items: center; gap: var(--espacio-l);">
+            <div class="fila">
+              <span class="insignia" title="Insignia Oro">★</span>
+              <span class="insignia" title="Insignia Logro">⚡</span>
+              <span class="insignia" title="Insignia Tutor">🎓</span>
+            </div>
+            <div class="fila">
+              <span class="chip">Chip básico</span>
+              <span class="chip chip--primario">Chip primario</span>
+              <span class="chip chip--acento">Chip acento</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 09. Progreso y Carga -->
+        <section id="progreso-carga" class="tarjeta">
+          <h2>09. Barra de Progreso (.progreso) y Carga (.cargando)</h2>
+          <div class="pila">
+            <div>
+              <small>Progreso de la Asignatura (75%)</small>
+              <div class="progreso" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                <span style="width: 75%;"></span>
+              </div>
+            </div>
+
+            <div>
+              <small>Progreso Primario (40%)</small>
+              <div class="progreso progreso--primario" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                <span style="width: 40%;"></span>
+              </div>
+            </div>
+
+            <div class="fila" style="align-items: center; gap: var(--espacio-m);">
+              <div class="cargando" aria-label="Cargando contenido"></div>
+              <span>Indicador de carga animado (.cargando)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. Modales y Estado Vacío -->
+        <section id="estados-dialogos" class="tarjeta">
+          <h2>10. Modales (.modal) y Estado Vacío (.vacio)</h2>
+          
+          <div class="fila">
+            <button type="button" class="btn btn--primario" id="btnAbrirModal">
+              Abrir Modal Accesible
+            </button>
+          </div>
+
+          <!-- Muestra de estado vacío -->
+          <div class="vacio" style="margin-top: var(--espacio-m);">
+            <div class="vacio__icono" aria-hidden="true">📋</div>
+            <h3 class="vacio__titulo">No se encontraron actividades</h3>
+            <p class="vacio__texto">
+              Aún no tienes tareas pendientes asignadas en este periodo académico.
+              Revisa tu calendario institucional para próximas convocatorias.
+            </p>
+            <button type="button" class="btn btn--secundario btn--pequeno">Actualizar lista</button>
+          </div>
+        </section>
+
+      </main>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="pie">
+    <div class="contenedor fila" style="justify-content: space-between; flex-wrap: wrap;">
+      <div>
+        <strong>Universidad Estatal de Milagro · UNEMI</strong>
+        <p style="color: var(--fondo); margin-top: var(--espacio-xs);">
+          Ecosistema Educativo Digital · Sistema de diseño accesible
+        </p>
+      </div>
+      <nav class="fila" aria-label="Enlaces de pie de página">
+        <a href="#colores">Inicio</a>
+        <a href="#botones">Componentes</a>
+        <a href="https://www.unemi.edu.ec" target="_blank" rel="noreferrer">Portal Oficial UNEMI ↗</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Contenedor dinámico de avisos / toasts -->
+  <div id="contenedor-avisos" class="contenedor-avisos" aria-live="polite"></div>
+
+  <!-- Script interactivo demostrativo -->
+  <script type="module">
+    // Menú móvil
+    const btnMenu = document.getElementById("btnAlternarMenu");
+    const menuLateral = document.getElementById("menuLateral");
+    if (btnMenu && menuLateral) {
+      btnMenu.addEventListener("click", () => {
+        const abierto = menuLateral.classList.toggle("menu--abierto");
+        btnMenu.setAttribute("aria-expanded", String(abierto));
+      });
+    }
+
+    // Demostración de Toast
+    const btnToast = document.getElementById("btnDispararToast");
+    const contAvisos = document.getElementById("contenedor-avisos");
+    if (btnToast && contAvisos) {
+      btnToast.addEventListener("click", () => {
+        const t = document.createElement("div");
+        t.className = "toast toast--exito";
+        t.textContent = "¡Acción completada con éxito desde la guía de estilos!";
+        contAvisos.appendChild(t);
+        setTimeout(() => t.remove(), 4000);
+      });
+    }
+
+    // Demostración de Modal Accesible
+    const btnModal = document.getElementById("btnAbrirModal");
+    if (btnModal) {
+      btnModal.addEventListener("click", () => {
+        const overlay = document.createElement("div");
+        overlay.className = "modal-overlay";
+        overlay.innerHTML = `
+          <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTituloDemo">
+            <div class="modal-cabecera">
+              <h2 id="modalTituloDemo" class="modal-titulo">Diálogo Demostrativo</h2>
+            </div>
+            <div class="modal-cuerpo">
+              <p>Este es un componente modal accesible con trampa de foco y cierre mediante la tecla Escape.</p>
+            </div>
+            <div class="modal-acciones">
+              <button type="button" class="btn btn--secundario" id="btnModalCerrar">Cerrar</button>
+              <button type="button" class="btn btn--primario" id="btnModalConfirmar">Aceptar</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+
+        const cerrar = () => {
+          overlay.remove();
+          btnModal.focus();
+        };
+
+        overlay.querySelector("#btnModalCerrar").addEventListener("click", cerrar);
+        overlay.querySelector("#btnModalConfirmar").addEventListener("click", cerrar);
+
+        const teclaHandler = (e) => {
+          if (e.key === "Escape") {
+            document.removeEventListener("keydown", teclaHandler);
+            cerrar();
+          }
+        };
+        document.addEventListener("keydown", teclaHandler);
+
+        overlay.querySelector("#btnModalConfirmar").focus();
+      });
+    }
+  </script>
+</body>
+</html>

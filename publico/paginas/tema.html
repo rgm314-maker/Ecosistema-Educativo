@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tema · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/tema.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <!-- Migas de pan accesibles -->
+    <nav aria-label="Migas de pan" class="migas" id="navMigas">
+      <ol class="migas__lista" id="listaMigas">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/paginas/asignaturas.html">Mis asignaturas</a></li>
+        <li id="migaAsignatura">Cargando...</li>
+        <li id="migaTema" aria-current="page">Cargando tema...</li>
+      </ol>
+    </nav>
+
+    <!-- Encabezado del Tema -->
+    <header class="tema-encabezado">
+      <div class="tema-encabezado__superior">
+        <span class="chip chip--primario" id="chipDificultad">Intermedio</span>
+        <div id="contenedorBotonRevisado">
+          <button type="button" class="btn btn--primario" id="btnMarcarRevisado">
+            Marcar como revisado
+          </button>
+        </div>
+        <a class="btn btn--secundario" id="enlaceTutorTema" href="/paginas/tutor.html" hidden>Pregunta al tutor</a>
+      </div>
+
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1 id="tituloTemaPrincipal">Cargando tema...</h1>
+      </div>
+    </header>
+
+    <!-- Objetivos de Aprendizaje -->
+    <section class="tema-seccion" id="seccionObjetivos">
+      <h2 class="tema-seccion__titulo">Objetivos de Aprendizaje</h2>
+      <ul id="listaObjetivosTema" style="margin: 0; padding-left: var(--espacio-l); line-height: var(--interlineado-base);">
+        <!-- Inserción dinámica -->
+      </ul>
+    </section>
+
+    <!-- Resumen Pedagógico -->
+    <section class="tema-seccion" id="seccionResumen">
+      <h2 class="tema-seccion__titulo">Fundamentos y Conceptos Clave</h2>
+      <div class="tema-resumen-cuerpo" id="cuerpoResumenTema">
+        <!-- Renderizado con util.formatoBasico -->
+      </div>
+    </section>
+
+    <!-- Ejemplos Prácticos -->
+    <section class="tema-seccion" id="seccionEjemplos">
+      <h2 class="tema-seccion__titulo">Ejemplos Prácticos</h2>
+      <div class="pila" id="cuerpoEjemplosTema" style="gap: var(--espacio-m);">
+        <!-- Inserción dinámica -->
+      </div>
+    </section>
+
+    <!-- Recursos Didácticos Multimedia y Descargables -->
+    <section class="tema-seccion" id="seccionRecursos">
+      <h2 class="tema-seccion__titulo">Recursos Didácticos</h2>
+      <div class="recursos-galeria" id="galeriaRecursos">
+        <!-- Videos incrustados, PDF e imágenes -->
+      </div>
+    </section>
+
+    <!-- Práctica del tema (Actividades) -->
+    <section class="tema-seccion" id="seccionPractica">
+      <h2 class="tema-seccion__titulo">Practica este tema</h2>
+      <div id="contenedorActividadesTema">
+        <!-- Inserción dinámica o estado vacío -->
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/modulos/tema.js"></script>
+</body>
+</html>

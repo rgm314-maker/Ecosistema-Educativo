@@ -1,0 +1,27 @@
+/* publico/css/modulos/prueba-datos.css */
+/* Estilos específicos de la página de prueba de datos */
+
+.prueba-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--espacio-l);
+  align-items: start;
+}
+
+@media (max-width: 768px) { /* PROVISIONAL */
+  .prueba-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.prueba-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.prueba-lista-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}

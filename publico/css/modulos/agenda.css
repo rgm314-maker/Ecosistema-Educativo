@@ -1,0 +1,16 @@
+.agenda__cabecera { display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-m); flex-wrap: wrap; }
+.agenda__cabecera h1, .agenda__calendario { margin: 0; }
+.agenda__rejilla { display: grid; grid-template-columns: minmax(0, 2fr) minmax(min(100%, var(--ancho-columna-min)), 1fr); gap: var(--espacio-m); align-items: start; }
+.agenda__calendario { overflow-x: auto; }
+.agenda__calendario > h2 { margin: 0; text-align: center; }
+.agenda__fechas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espacio-m); }
+.agenda__opcion { display: flex; align-items: center; gap: var(--espacio-s); }
+.agenda__fieldset { display: flex; gap: var(--espacio-m); flex-wrap: wrap; border: var(--borde-fino) solid var(--borde); border-radius: var(--radio-m); padding: var(--espacio-m); }
+.semana-evento { padding: var(--espacio-s); border-left: var(--borde-destacado) solid var(--info); background: var(--info-fondo); border-radius: var(--radio-s); }
+.semana-evento--vencido { border-left-color: var(--error); background: var(--error-fondo); }
+.semana-evento--completo { border-left-color: var(--exito); background: var(--exito-fondo); }
+.fc { color: var(--texto); }
+.fc .fc-button-primary { background: var(--primario); border-color: var(--primario); }
+.fc .fc-button-primary:hover, .fc .fc-button-primary:not(:disabled).fc-button-active { background: var(--secundario); border-color: var(--secundario); }
+.fc .fc-daygrid-day.fc-day-today { background: var(--info-fondo); }
+@media (max-width: 768px) { .agenda__rejilla, .agenda__fechas { grid-template-columns: 1fr; } }

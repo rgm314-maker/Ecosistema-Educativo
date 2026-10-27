@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha del Tema · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-tema.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <!-- Barra superior de navegación y acciones -->
+    <header class="editor-tema-cabecera">
+      <div class="fila" style="gap: var(--espacio-s);">
+        <button type="button" class="btn btn--secundario btn--pequeno" id="btnVolver">
+          ← Volver a Contenidos
+        </button>
+        <span class="chip chip--acento" id="chipEstadoTema">Borrador</span>
+      </div>
+
+      <div class="editor-tema-acciones">
+        <button
+          type="button"
+          class="btn btn--secundario btn--pequeno"
+          id="btn-generar-ia"
+          title="Generar propuestas de glosario para habilitar los juegos"
+        >
+          ✨ Generar material para juegos
+        </button>
+
+        <button type="button" class="btn btn--primario btn--pequeno" id="btnGuardarFicha">
+          💾 Guardar ficha
+        </button>
+      </div>
+    </header>
+
+    <!-- Ficha del Tema -->
+    <form id="formFichaTema" class="pila" novalidate>
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Datos Generales del Tema</h2>
+        </div>
+
+        <div class="pila" style="gap: var(--espacio-m);">
+          <div class="campo">
+            <label for="temaTitulo">Título del tema *</label>
+            <input type="text" id="temaTitulo" required placeholder="Ej. La Cuenta y la Partida Doble">
+          </div>
+
+          <div class="fila" style="gap: var(--espacio-m); flex-wrap: wrap;">
+            <div class="campo" style="flex: 1; min-width: 160px;">
+              <label for="temaDificultad">Nivel de dificultad</label>
+              <select id="temaDificultad">
+                <option value="basico">Básico</option>
+                <option value="intermedio" selected>Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
+            </div>
+
+            <div class="campo" style="flex: 1; min-width: 160px;">
+              <label for="temaEstado">Estado de publicación</label>
+              <select id="temaEstado">
+                <option value="borrador">Borrador</option>
+                <option value="publicado">Publicado</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Resumen con contador y formato -->
+          <div class="campo">
+            <div class="fila" style="justify-content: space-between; align-items: baseline;">
+              <label for="temaResumen">Resumen teórico y pedagógico *</label>
+              <button type="button" class="btn btn--secundario btn--pequeno" id="btnTogglePreviewResumen">
+                Previsualizar formato
+              </button>
+            </div>
+            <textarea
+              id="temaResumen"
+              rows="7"
+              required
+              placeholder="Desarrolla el contenido explicativo del tema. Puedes usar **negrita** para conceptos clave o viñetas con '- '..."
+            ></textarea>
+            <div class="contador-palabras" id="contadorPalabrasResumen">
+              <span>0 palabras (Recomendado: 300 a 800 palabras)</span>
+            </div>
+            <div class="preview-resumen oculto" id="previewResumen"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Objetivos Pedagógicos -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Objetivos de Aprendizaje</h2>
+          <button type="button" class="btn btn--secundario btn--pequeno" id="btnAgregarObjetivo">
+            + Agregar objetivo
+          </button>
+        </div>
+        <ul class="lista-dinamica" id="listaObjetivos"></ul>
+      </section>
+
+      <!-- Ejemplos Prácticos -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Ejemplos Prácticos</h2>
+          <button type="button" class="btn btn--secundario btn--pequeno" id="btnAgregarEjemplo">
+            + Agregar ejemplo
+          </button>
+        </div>
+        <ul class="lista-dinamica" id="listaEjemplos"></ul>
+      </section>
+
+      <!-- Errores Frecuentes -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Errores Frecuentes</h2>
+          <button type="button" class="btn btn--secundario btn--pequeno" id="btnAgregarError">
+            + Agregar error frecuente
+          </button>
+        </div>
+        <ul class="lista-dinamica" id="listaErrores"></ul>
+      </section>
+
+      <!-- Preguntas Guía -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Preguntas Guía</h2>
+          <button type="button" class="btn btn--secundario btn--pequeno" id="btnAgregarPregunta">
+            + Agregar pregunta guía
+          </button>
+        </div>
+        <ul class="lista-dinamica" id="listaPreguntas"></ul>
+      </section>
+
+      <!-- Recursos Multimedia y Descargables -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Recursos Didácticos (Videos, PDF, Imágenes, Enlaces)</h2>
+          <div class="fila" style="gap: var(--espacio-s); flex-wrap: wrap;">
+            <button type="button" class="btn btn--primario btn--pequeno btn-guardar-recursos-directo" title="Guardar cambios de recursos">
+              💾 Guardar material
+            </button>
+            <button type="button" class="btn btn--secundario btn--pequeno" id="btnSubirPdfDirecto">
+              📄 Subir archivo PDF
+            </button>
+            <button type="button" class="btn btn--secundario btn--pequeno" id="btnAgregarRecurso">
+              + Agregar otro recurso
+            </button>
+          </div>
+        </div>
+        <input type="file" id="inputPdfDirecto" accept=".pdf,application/pdf" class="oculto">
+        <div class="pila" id="listaRecursos" style="gap: var(--espacio-s);"></div>
+      </section>
+
+      <!-- Metadatos y Fuentes -->
+      <section class="seccion-ficha">
+        <div class="seccion-ficha__cabecera">
+          <h2 class="seccion-ficha__titulo">Metadatos y Bibliografía</h2>
+        </div>
+        <div class="pila" style="gap: var(--espacio-m);">
+          <div class="campo">
+            <label for="temaPalabrasClave">Palabras clave (separadas por comas)</label>
+            <input type="text" id="temaPalabrasClave" placeholder="Ej. partida doble, activo, pasivo, balance">
+          </div>
+
+          <div class="campo">
+            <label for="temaFuentes">Fuentes y referencias bibliográficas</label>
+            <textarea id="temaFuentes" rows="3" placeholder="Normas NIIF, libros de texto, autores o enlaces de referencia..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botón de guardado inferior accesible -->
+      <div style="display: flex; justify-content: flex-end; gap: var(--espacio-s); margin-top: var(--espacio-m); padding-top: var(--espacio-m); border-top: var(--borde-fino) solid var(--borde);">
+        <button type="button" class="btn btn--primario" id="btnGuardarFichaInferior">
+          💾 Guardar tema y material
+        </button>
+      </div>
+    </form>
+
+    <!-- Sección de Glosario del Tema -->
+    <section class="seccion-ficha" id="seccionGlosario">
+      <div class="seccion-ficha__cabecera">
+        <div class="pila" style="gap: var(--espacio-xs);">
+          <h2 class="seccion-ficha__titulo">Glosario Temático</h2>
+          <p style="font-size: var(--texto-s); color: var(--texto-suave);">
+            Términos clave para actividades interactivas y gamificación del tema.
+          </p>
+        </div>
+        <button type="button" class="btn btn--primario btn--pequeno" id="btnAgregarTermino">
+          + Agregar término
+        </button>
+      </div>
+
+      <!-- Métricas e indicador Apto para Juegos -->
+      <div class="glosario-metricas">
+        <div class="glosario-metrica-item">
+          <span>📚 Total de términos:</span>
+          <strong id="metricaTotalTerminos">0</strong>
+        </div>
+        <div class="glosario-metrica-item">
+          <span>🔤 Con exactamente 6 letras:</span>
+          <strong id="metricaSeisLetras">0</strong>
+        </div>
+        <div id="indicadorAptoJuegos">
+          <!-- Renderizado dinámico -->
+        </div>
+      </div>
+
+      <!-- Tabla de términos -->
+      <div class="tabla-glosario-contenedor">
+        <table class="tabla-glosario" id="tablaGlosario">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 15%;">Término</th>
+              <th scope="col" style="width: 35%;">Definición (máx 25 pal.)</th>
+              <th scope="col" style="width: 20%;">Pista (máx 10 pal.)</th>
+              <th scope="col" style="width: 20%;">Retroalimentación</th>
+              <th scope="col" style="width: 10%; text-align: right;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTablaGlosario">
+            <!-- Inserción dinámica -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/js/modulos/editor-tema.js"></script>
+</body>
+</html>

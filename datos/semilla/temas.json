@@ -1,0 +1,92 @@
+[
+  {
+    "id": "tem_000001",
+    "unidadId": "uni_000001",
+    "titulo": "La Cuenta y la Partida Doble",
+    "orden": 1,
+    "objetivos": [
+      "Comprender la estructura y naturaleza de las cuentas contables.",
+      "Aplicar el principio universal de la partida doble en transacciones comerciales.",
+      "Identificar los débitos y créditos en las operaciones económicas."
+    ],
+    "resumen": "La cuenta es el instrumento básico mediante el cual se registran de forma ordenada y sistemática las operaciones de una empresa. El método de la partida doble establece que a todo cargo en una cuenta le corresponde un abono en otra, manteniendo invariable la igualdad de la ecuación contable básica: Activo = Pasivo + Patrimonio.",
+    "ejemplos": [
+      "Compra de mercadería al contado por $500: se debita Inventario por $500 y se acredita Banco por $500.",
+      "Aporte inicial de los socios en efectivo por $2000: se debita Caja por $2000 y se acredita Capital Social por $2000."
+    ],
+    "erroresFrecuentes": [
+      "Confundir un incremento de pasivo con un débito en lugar de un crédito.",
+      "Olvidar que la suma total del Debe debe ser siempre exactamente igual a la suma del Haber en cada asiento contable."
+    ],
+    "preguntasGuia": [
+      "¿Por qué todo registro contable afecta al menos a dos cuentas?",
+      "¿Cuál es el efecto de registrar un gasto sobre el patrimonio de la entidad?"
+    ],
+    "recursos": [
+      {
+        "tipo": "enlace",
+        "titulo": "Guía de la Ecuación Contable",
+        "url": "/recursos/guia-ecuacion-contable.pdf"
+      },
+      {
+        "tipo": "video",
+        "titulo": "Explicación Dinámica de la Partida Doble",
+        "url": "https://www.youtube.com/watch?v=ejemplo_partida_doble"
+      }
+    ],
+    "palabrasClave": [
+      "partida doble",
+      "activo",
+      "pasivo",
+      "debe",
+      "haber",
+      "asiento"
+    ],
+    "dificultad": "intermedio",
+    "fuentes": "Normas Internacionales de Información Financiera (NIIF para PYMES) y Código de Comercio.",
+    "estado": "publicado",
+    "fecha": "2026-10-24T00:00:00.000Z"
+  },
+  {
+    "id": "tem_000002",
+    "unidadId": "uni_000001",
+    "titulo": "Estados Financieros Básicos",
+    "orden": 2,
+    "objetivos": [
+      "Diferenciar la finalidad del Estado de Situación Financiera y del Estado de Resultados.",
+      "Clasificar correctamente los componentes del activo, pasivo, ingresos y gastos.",
+      "Interpretar la información económica para la toma de decisiones gerenciales."
+    ],
+    "resumen": "Los estados financieros son informes estructurados que reflejan la situación económica y financiera de una entidad a una fecha determinada. El Balance General o Estado de Situación muestra los bienes, derechos y obligaciones, mientras que el Estado de Resultados refleja el desempeño operativo y la utilidad o pérdida neta obtenida en el ejercicio contable.",
+    "ejemplos": [
+      "Presentación del efectivo y equivalentes dentro del Activo Corriente en el Balance General.",
+      "Determinación de la utilidad neta restando el costo de ventas y los gastos operacionales de los ingresos totales."
+    ],
+    "erroresFrecuentes": [
+      "Incluir cuentas de resultados (ingresos o gastos) dentro del Estado de Situación Financiera.",
+      "Clasificar activos no corrientes como obligaciones a corto plazo."
+    ],
+    "preguntasGuia": [
+      "¿Qué diferencia existe entre un costo y un gasto en el Estado de Resultados?",
+      "¿De qué manera la utilidad del ejercicio se integra en el patrimonio de la empresa?"
+    ],
+    "recursos": [
+      {
+        "tipo": "enlace",
+        "titulo": "Plantilla Modelo de Estados Financieros NIIF",
+        "url": "/recursos/plantilla-estados-financieros.pdf"
+      }
+    ],
+    "palabrasClave": [
+      "balance general",
+      "estado de resultados",
+      "patrimonio",
+      "utilidad",
+      "flujo"
+    ],
+    "dificultad": "intermedio",
+    "fuentes": "Norma Internacional de Contabilidad 1 (NIC 1) - Presentación de Estados Financieros.",
+    "estado": "publicado",
+    "fecha": "2026-10-24T00:00:00.000Z"
+  }
+]

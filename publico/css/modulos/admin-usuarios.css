@@ -1,0 +1,149 @@
+/* publico/css/modulos/admin-usuarios.css */
+/* Estilos para el panel de administración de usuarios */
+
+.admin-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-m);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--espacio-l);
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border-radius: var(--radio-m);
+  border: var(--borde-fino) solid var(--borde);
+}
+
+.admin-filtros__grupo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-m);
+  align-items: center;
+  flex: 1;
+}
+
+.admin-filtros__buscador {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-filtros__rol {
+  min-width: 160px;
+}
+
+.admin-filtros__conteo {
+  font-size: var(--texto-s);
+  color: var(--texto-suave);
+  white-space: nowrap;
+}
+
+.admin-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  background-color: var(--superficie);
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+  padding: var(--espacio-m);
+  border-bottom: var(--borde-fino) solid var(--borde);
+  vertical-align: middle;
+}
+
+.admin-tabla th {
+  background-color: var(--fondo);
+  font-weight: var(--peso-negrita);
+  color: var(--texto);
+  font-size: var(--texto-s);
+}
+
+.admin-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-tabla tr:hover {
+  background-color: var(--fondo);
+}
+
+.usuario-celda {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-m);
+}
+
+.usuario-celda__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radio-completo);
+  background-color: var(--info-fondo);
+  color: var(--primario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--peso-negrita);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.usuario-celda__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.usuario-celda__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.usuario-celda__nombre {
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+}
+
+.usuario-celda__correo {
+  font-size: var(--texto-s);
+  color: var(--texto-suave);
+}
+
+.admin-control-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  cursor: pointer;
+}
+
+.clave-temporal-box {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) dashed var(--primario);
+  border-radius: var(--radio-m);
+  margin-top: var(--espacio-m);
+}
+
+.clave-temporal-codigo {
+  font-family: monospace;
+  font-size: var(--texto-l);
+  font-weight: var(--peso-negrita);
+  letter-spacing: 0.1em;
+  color: var(--primario);
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .admin-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

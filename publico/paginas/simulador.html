@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/simulador.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor simulador" data-avatar="Lee el caso y actúa de acuerdo con el objetivo. Compara las consecuencias o conversa con el personaje antes de terminar.">
+    <header class="simulador__cabecera">
+      <div><p class="simulador__etiqueta">Simulación</p><h1 id="tituloSimulacion">Cargando…</h1></div>
+      <div class="simulador__marcadores"><span class="chip" id="puntajeActual">0 puntos</span><span class="chip chip--acento" id="indicadorPrevia" hidden>Vista previa</span></div>
+    </header>
+    <section id="escenario" aria-live="polite"></section>
+  </main>
+  <script type="module" src="/js/modulos/simulador.js"></script>
+</body>
+</html>

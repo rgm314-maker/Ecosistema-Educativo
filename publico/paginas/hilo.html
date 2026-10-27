@@ -1,0 +1,7 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Hilo · Ecosistema Educativo</title>
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/componentes.css"><link rel="stylesheet" href="/css/modulos/hilo.css"></head>
+<body><div id="plantilla"></div><main id="contenido" class="contenedor pila"><a href="/paginas/foros.html">← Volver a foros</a><section id="hilo"></section><section><h2>Respuestas</h2><div id="respuestas" class="pila"></div><nav id="paginacion" class="hilo__paginacion" aria-label="Páginas de respuestas"></nav></section><form id="form-respuesta" class="tarjeta pila"><label class="campo"><span>Tu respuesta</span><textarea id="respuesta" class="campo-texto" maxlength="5000" rows="6" required></textarea></label><button class="btn btn--primario" type="submit">Responder</button></form>
+<dialog id="modal-reporte" class="modal-dialog"><form id="form-reporte" class="pila"><h2>Reportar publicación</h2><label class="campo"><span>Motivo</span><textarea id="motivo" class="campo-texto" maxlength="5000" required></textarea></label><div class="modal-acciones"><button id="cancelar-reporte" class="btn btn--secundario" type="button">Cancelar</button><button class="btn btn--primario" type="submit">Enviar reporte</button></div></form></dialog>
+</main><script type="module" src="/js/modulos/hilo.js"></script></body></html>

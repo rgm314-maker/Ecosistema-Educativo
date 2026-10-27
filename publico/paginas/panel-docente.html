@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel docente · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/panel-docente.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor panel-docente">
+    <header class="panel-docente__cabecera">
+      <div>
+        <h1>Panel docente</h1>
+        <p>Consulta el uso académico del tutor por cada grupo asignado.</p>
+      </div>
+      <label class="campo panel-docente__grupo" for="grupoPanel">
+        <span>Grupo</span>
+        <select id="grupoPanel" disabled>
+          <option value="">Cargando grupos…</option>
+        </select>
+      </label>
+    </header>
+
+    <section class="tarjeta panel-docente__tutor" aria-labelledby="tituloUsoTutor">
+      <div>
+        <h2 id="tituloUsoTutor">Uso del tutor</h2>
+        <p class="texto-suave">Conteos acumulados de consultas. No se muestran textos de conversaciones.</p>
+      </div>
+
+      <div class="panel-docente__rejilla">
+        <section aria-labelledby="tituloTemasTutor">
+          <h3 id="tituloTemasTutor">Temas más consultados</h3>
+          <div class="panel-docente__grafico" id="contenedorGraficoTutor">
+            <canvas id="graficoTutor" aria-label="Cinco temas más consultados en el tutor" role="img"></canvas>
+            <p class="vacio__texto" id="sinDatosGrafico" hidden>No hay consultas al tutor en este grupo.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="tituloEstudiantesTutor">
+          <h3 id="tituloEstudiantesTutor">Consultas por estudiante</h3>
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead><tr><th scope="col">Estudiante</th><th scope="col">Consultas</th></tr></thead>
+              <tbody id="tablaUsoTutor"><tr><td colspan="2">Selecciona un grupo.</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <p id="estadoUsoTutor" class="texto-suave" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="/js/modulos/panel-docente.js"></script>
+</body>
+</html>

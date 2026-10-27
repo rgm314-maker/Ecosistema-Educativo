@@ -1,0 +1,21 @@
+/* publico/css/modulos/privacidad.css */
+/* Estilos específicos del aviso de privacidad */
+
+.privacidad-tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.privacidad-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding-bottom: var(--espacio-s);
+  border-bottom: var(--borde-fino) solid var(--borde);
+}
+
+.privacidad-seccion:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}

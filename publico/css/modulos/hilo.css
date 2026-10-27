@@ -1,0 +1,8 @@
+.publicacion { display: grid; gap: var(--espacio-s); }
+.publicacion__cabecera, .publicacion__acciones { display: flex; justify-content: space-between; align-items: center; gap: var(--espacio-s); flex-wrap: wrap; }
+.publicacion__acciones { justify-content: flex-end; }
+.publicacion--destacada { border: var(--borde-grueso) solid var(--acento); }
+.publicacion--oculta { opacity: 0.7; }
+.hilo__paginacion { display: flex; justify-content: center; gap: var(--espacio-xs); margin-block: var(--espacio-m); }
+#modal-reporte { width: min(100%, var(--ancho-modal-max)); border: 0; border-radius: var(--radio-l); padding: var(--espacio-l); }
+#modal-reporte::backdrop { background: var(--color-overlay); }

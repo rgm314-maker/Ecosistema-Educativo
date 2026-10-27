@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de simulación · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/editor-simulacion.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor editor-simulacion">
+    <header class="editor-simulacion__cabecera">
+      <div><h1 id="tituloPagina">Nueva simulación</h1><p>Construye recorridos de decisiones y consecuencias para tus estudiantes.</p></div>
+      <div class="editor-simulacion__acciones">
+        <a class="btn btn--texto" href="/paginas/simulaciones.html">Cancelar</a>
+        <button class="btn btn--secundario" type="button" id="vistaPrevia">Vista previa</button>
+        <button class="btn btn--primario" type="button" id="guardarSimulacion">Guardar</button>
+      </div>
+    </header>
+
+    <section class="tarjeta" aria-labelledby="tituloDatosGenerales">
+      <h2 id="tituloDatosGenerales">Datos generales</h2>
+      <div class="editor-simulacion__generales">
+        <label class="campo"><span>Título</span><input id="titulo" maxlength="160" required></label>
+        <label class="campo"><span>Tema</span><select id="tema" required><option value="">Cargando temas…</option></select></label>
+        <label class="campo"><span>Modo</span><select id="modo"><option value="escenarios">Escenarios</option><option value="rol">Rol</option></select></label>
+        <label class="campo"><span>Estado</span><select id="estado"><option value="borrador">Borrador</option><option value="publicado">Publicado</option></select></label>
+      </div>
+    </section>
+
+    <section id="erroresValidacion" class="alerta alerta--error" aria-live="assertive" hidden></section>
+
+    <section id="editorRol" class="tarjeta editor-simulacion__rol" aria-labelledby="tituloRol" hidden>
+      <div>
+        <h2 id="tituloRol">Caso y personaje</h2>
+        <p class="texto-suave">Define la situación que el estudiante practicará mediante una conversación.</p>
+      </div>
+      <div class="editor-simulacion__generales">
+        <label class="campo"><span>Nombre del personaje</span><input id="personajeNombre" maxlength="100"></label>
+        <label class="campo"><span>Máximo de turnos (4 a 12)</span><input id="maxTurnos" type="number" min="4" max="12" value="6"></label>
+      </div>
+      <label class="campo"><span>Descripción del personaje</span><textarea id="personajeDescripcion" maxlength="800" rows="3"></textarea></label>
+      <label class="campo"><span>Contexto del caso</span><textarea id="personajeContexto" maxlength="2000" rows="5"></textarea></label>
+      <label class="campo"><span>Objetivo del estudiante</span><textarea id="personajeObjetivo" maxlength="1000" rows="3"></textarea></label>
+      <section class="editor-simulacion__rubrica" aria-labelledby="tituloRubrica">
+        <div class="editor-simulacion__opcion-cabecera">
+          <div><h3 id="tituloRubrica">Rúbrica</h3><p class="texto-suave">Agrega de 3 a 5 criterios de evaluación.</p></div>
+          <button class="btn btn--secundario btn--pequeno" type="button" id="agregarCriterio">Agregar criterio</button>
+        </div>
+        <div id="listaRubrica" class="editor-simulacion__criterios"></div>
+      </section>
+    </section>
+
+    <div id="editorEscenarios" class="editor-simulacion__contenido">
+      <section class="tarjeta editor-simulacion__herramientas" aria-labelledby="tituloEstructura">
+        <div><h2 id="tituloEstructura">Estructura del escenario</h2><p class="texto-suave">Una escena final no tiene opciones; las demás deben incluir de 2 a 4.</p></div>
+        <label class="campo editor-simulacion__inicial"><span>Escena inicial</span><select id="escenaInicial"></select></label>
+        <button class="btn btn--secundario" type="button" id="agregarEscena">Agregar escena</button>
+      </section>
+      <section id="listaEscenas" class="editor-simulacion__escenas" aria-label="Escenas"></section>
+
+      <section class="tarjeta" aria-labelledby="tituloMapa">
+        <h2 id="tituloMapa">Mapa del escenario</h2>
+        <ul id="mapaEscenario" class="editor-simulacion__mapa"></ul>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/editor-simulacion.js"></script>
+</body>
+</html>

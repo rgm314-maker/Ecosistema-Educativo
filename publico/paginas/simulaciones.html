@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulaciones · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/simulaciones.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor simulaciones">
+    <header class="simulaciones__cabecera">
+      <div><h1>Simulaciones</h1><p>Practica la toma de decisiones en situaciones relacionadas con cada tema.</p></div>
+      <a class="btn btn--primario" id="nuevaSimulacion" href="/paginas/editor-simulacion.html" hidden>Nueva</a>
+    </header>
+    <div id="listaSimulaciones" class="simulaciones__lista" aria-live="polite"></div>
+  </main>
+  <script type="module" src="/js/modulos/simulaciones.js"></script>
+</body>
+</html>

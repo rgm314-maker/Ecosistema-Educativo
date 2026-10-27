@@ -1,0 +1,8 @@
+.quiz { max-width: var(--ancho-maximo); margin-inline: auto; }
+.quiz__niveles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--ancho-columna-min)), 1fr)); gap: var(--espacio-xs); }
+.quiz__nivel { min-width: 0; }
+.quiz__cabecera { display: flex; justify-content: space-between; gap: var(--espacio-m); align-items: center; flex-wrap: wrap; }
+.quiz__opciones { display: grid; gap: var(--espacio-s); border: 0; padding: 0; margin-block: var(--espacio-l); }
+.quiz__opcion { display: flex; gap: var(--espacio-s); align-items: center; padding: var(--espacio-m); border: var(--borde-fino) solid var(--borde); border-radius: var(--radio-m); cursor: pointer; }
+.quiz__opcion:focus-within { outline: var(--borde-grueso) solid var(--color-foco); outline-offset: var(--borde-fino); }
+.quiz__acciones { display: flex; justify-content: flex-end; }

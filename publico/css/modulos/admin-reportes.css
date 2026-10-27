@@ -1,0 +1,9 @@
+.reportes-grid { display: grid; gap: var(--espacio-m); }
+.reporte { display: grid; gap: var(--espacio-m); }
+.reporte__meta, .reporte__acciones { display: flex; justify-content: space-between; gap: var(--espacio-s); flex-wrap: wrap; }
+.reporte__acciones { justify-content: flex-end; }
+.reporte__contenido { padding: var(--espacio-m); background: var(--fondo); border-radius: var(--radio-m); }
+.reporte__contexto { display: grid; gap: var(--espacio-s); margin: 0; padding-left: var(--espacio-l); }
+.reporte__mensaje { padding: var(--espacio-s); border-left: var(--borde-grueso) solid var(--borde); }
+.reporte__mensaje--reportado { border-color: var(--error); background: var(--error-fondo); }
+.reporte__mensaje-meta { display: flex; justify-content: space-between; gap: var(--espacio-s); margin-bottom: var(--espacio-xs); }

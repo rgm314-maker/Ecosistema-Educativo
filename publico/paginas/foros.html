@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Foros · Ecosistema Educativo</title>
+<link rel="stylesheet" href="/css/tokens.css"><link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/componentes.css"><link rel="stylesheet" href="/css/modulos/foros.css"></head>
+<body><div id="plantilla"></div><main id="contenido" class="contenedor pila">
+<header class="foros__cabecera"><div><h1>Foros</h1><p class="texto-suave">Comparte preguntas y aportes con tu comunidad académica.</p></div><button id="nuevo-hilo" class="btn btn--primario" type="button">Nuevo hilo</button></header>
+<section class="tarjeta foros__filtros" aria-label="Filtros"><label class="campo"><span>Asignatura</span><select id="asignatura" class="campo-texto"></select></label><label class="campo"><span>Tema opcional</span><select id="tema" class="campo-texto"><option value="">Todos los temas</option></select></label></section>
+<section id="lista-hilos" class="pila" aria-live="polite"></section>
+<dialog id="modal-hilo" class="modal-dialog"><form id="form-hilo" class="pila"><h2>Nuevo hilo</h2><label class="campo"><span>Título</span><input id="titulo" class="campo-texto" maxlength="160" required></label><label class="campo"><span>Mensaje</span><textarea id="texto" class="campo-texto" maxlength="5000" rows="8" required></textarea></label><div class="modal-acciones"><button id="cancelar-hilo" class="btn btn--secundario" type="button">Cancelar</button><button class="btn btn--primario" type="submit">Publicar</button></div></form></dialog>
+</main><script type="module" src="/js/modulos/foros.js"></script></body></html>

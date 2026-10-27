@@ -1,0 +1,87 @@
+/* publico/css/modulos/asignatura.css */
+/* Estilos para el temario y unidades de la asignatura */
+
+.asignatura-cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  padding: var(--espacio-l);
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  box-shadow: var(--sombra-1);
+}
+
+.asignatura-cabecera__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  flex-wrap: wrap;
+}
+
+.unidad-bloque {
+  background-color: var(--superficie);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  padding: var(--espacio-l);
+  box-shadow: var(--sombra-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+}
+
+.unidad-bloque__titulo {
+  font-size: var(--texto-l);
+  font-weight: var(--peso-negrita);
+  color: var(--primario);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+}
+
+.lista-temas-estudiante {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-s);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-tema-estudiante {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-m);
+  padding: var(--espacio-m);
+  background-color: var(--fondo);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-m);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+.item-tema-estudiante:hover {
+  transform: translateX(4px);
+  border-color: var(--primario);
+}
+
+.item-tema-estudiante__info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-s);
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.item-tema-estudiante__titulo {
+  font-weight: var(--peso-medio);
+  color: var(--texto);
+  overflow-wrap: break-word;
+  word-break: normal;
+  line-height: var(--interlineado-base);
+}

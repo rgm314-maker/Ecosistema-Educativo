@@ -1,0 +1,163 @@
+.pagina-tutor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
+
+.tutor__encabezado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espacio-l);
+  padding: var(--espacio-l);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--superficie);
+  box-shadow: var(--sombra-1);
+}
+
+.tutor__presentacion {
+  gap: var(--espacio-s);
+}
+
+.tutor__encabezado h1,
+.tutor__encabezado p,
+.tutor__chat h2 {
+  margin: 0;
+}
+
+.tutor__etiqueta {
+  color: var(--acento);
+  font-size: var(--texto-s);
+  font-weight: var(--peso-negrita);
+}
+
+#temaTutor {
+  color: var(--primario);
+  font-size: var(--texto-l);
+  font-weight: var(--peso-seminegrita);
+}
+
+.tutor__guias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+}
+
+.tutor__guia {
+  cursor: pointer;
+  text-align: left;
+  white-space: normal;
+}
+
+.tutor__guia:hover {
+  border-color: var(--acento);
+  background: var(--advertencia-fondo);
+}
+
+.tutor__chat {
+  gap: var(--espacio-l);
+}
+
+.tutor__mensajes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-m);
+  min-height: calc(var(--espacio-2xl) * 4);
+  max-height: calc(100vh - (var(--espacio-2xl) * 5));
+  overflow-y: auto;
+  padding: var(--espacio-m);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--fondo);
+}
+
+.tutor__inicio {
+  margin: auto;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+.tutor__mensaje {
+  align-self: flex-start;
+  max-width: min(85%, var(--ancho-modal-max));
+  padding: var(--espacio-s) var(--espacio-m);
+  border: var(--borde-fino) solid var(--borde);
+  border-radius: var(--radio-l);
+  background: var(--superficie);
+  box-shadow: var(--sombra-1);
+}
+
+.tutor__mensaje--estudiante {
+  align-self: flex-end;
+  border-color: var(--secundario);
+  background: var(--primario);
+  color: var(--texto-inverso);
+}
+
+.tutor__mensaje--estudiante .tutor__autor,
+.tutor__mensaje--estudiante .tutor__texto {
+  color: var(--texto-inverso);
+}
+
+.tutor__mensaje--aviso {
+  border-color: var(--advertencia);
+  background: var(--advertencia-fondo);
+}
+
+.tutor__texto {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.tutor__texto p {
+  margin: 0 0 var(--espacio-s);
+}
+
+.tutor__texto p:last-child,
+.tutor__texto ul:last-child {
+  margin-bottom: 0;
+}
+
+.tutor__autor {
+  display: block;
+  margin-bottom: var(--espacio-xs);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-negrita);
+}
+
+.tutor__pensando {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: var(--texto-s);
+  font-style: italic;
+}
+
+.tutor__formulario {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--espacio-m);
+}
+
+.tutor__formulario .campo {
+  flex: 1;
+}
+
+.tutor__ayuda {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-s);
+  color: var(--texto-suave);
+}
+
+@media (max-width: 48rem) {
+  .tutor__encabezado,
+  .tutor__formulario {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tutor__mensaje {
+    max-width: 95%;
+  }
+}

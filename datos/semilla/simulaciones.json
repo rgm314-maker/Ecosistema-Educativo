@@ -1,0 +1,55 @@
+[
+  {
+    "id": "sim_000001",
+    "temaId": "tem_000001",
+    "titulo": "Decisiones contables en un emprendimiento",
+    "modo": "escenarios",
+    "estado": "publicado",
+    "escenaInicial": "E1",
+    "escenas": [
+      {
+        "id": "E1",
+        "texto": "Tu emprendimiento compra suministros a crédito por $300. Debes decidir cómo registrar la operación antes de continuar con el cierre diario.",
+        "opciones": [
+          { "texto": "Debitar Suministros y acreditar Cuentas por pagar", "destino": "E2", "puntos": 3, "consecuencia": "Reconoces el aumento del activo y de la obligación. El asiento mantiene la partida doble." },
+          { "texto": "Debitar Cuentas por pagar y acreditar Suministros", "destino": "E3", "puntos": -2, "consecuencia": "El asiento invierte la naturaleza de las cuentas. La obligación y los suministros quedarían registrados incorrectamente." }
+        ]
+      },
+      {
+        "id": "E2",
+        "texto": "Más tarde realizas una venta al contado por $500. El dinero ingresa inmediatamente a la caja del negocio.",
+        "opciones": [
+          { "texto": "Debitar Caja y acreditar Ventas", "destino": "E4", "puntos": 4, "consecuencia": "Registras el aumento del efectivo y el ingreso generado por la venta." },
+          { "texto": "Debitar Ventas y acreditar Caja", "destino": "E5", "puntos": -3, "consecuencia": "El registro disminuye el efectivo pese a que hubo un cobro. El saldo final no representa la operación real." }
+        ]
+      },
+      {
+        "id": "E3",
+        "texto": "Al revisar el primer asiento notas que los saldos no reflejan la compra. Tienes la oportunidad de corregirlo antes del cierre.",
+        "opciones": [
+          { "texto": "Revertir el asiento y registrar correctamente la compra", "destino": "E4", "puntos": 2, "consecuencia": "La corrección restablece los saldos y documenta adecuadamente la obligación." },
+          { "texto": "Mantener el asiento para no alterar el libro", "destino": "E5", "puntos": -4, "consecuencia": "Conservas un error que afecta los saldos de activo y pasivo del negocio." }
+        ]
+      },
+      {
+        "id": "E4",
+        "texto": "Antes de cerrar, comparas los totales del Debe y el Haber. Debes decidir cómo actuar con la comprobación final.",
+        "opciones": [
+          { "texto": "Verificar que ambos totales sean iguales y conservar los respaldos", "destino": "E6", "puntos": 3, "consecuencia": "Confirmas el equilibrio de la partida doble y dejas evidencia para futuras revisiones." },
+          { "texto": "Cerrar sin comprobar los totales", "destino": "E5", "puntos": -2, "consecuencia": "Omites un control básico y aumenta el riesgo de presentar información incorrecta." }
+        ]
+      },
+      {
+        "id": "E5",
+        "texto": "El cierre presenta diferencias y requiere una revisión completa. Analiza el recorrido para identificar dónde se rompió la lógica de la partida doble.",
+        "opciones": []
+      },
+      {
+        "id": "E6",
+        "texto": "El libro diario queda equilibrado y cada operación conserva su respaldo. Has aplicado correctamente la naturaleza de las cuentas y la partida doble.",
+        "opciones": []
+      }
+    ],
+    "fecha": "2026-10-24T00:00:00.000Z"
+  }
+]

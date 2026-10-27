@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuración de IA · Administración</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/admin-ajustes.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <header class="ajustes-cabecera">
+      <div>
+        <h1 class="ajustes-titulo">Configuración de Inteligencia Artificial</h1>
+        <p class="ajustes-subtitulo">
+          Configura las credenciales de la API de Google Gemini y los modelos generativos para el banco de preguntas, tutor socrático y simulaciones.
+        </p>
+      </div>
+    </header>
+
+    <div class="ajustes-grid">
+      <!-- Tarjeta del Formulario de IA -->
+      <section class="tarjeta">
+        <h2>Parámetros de Google Gemini</h2>
+        <p class="texto-suave">
+          Los ajustes configurados aquí se aplicarán a todas las funciones de IA de la plataforma sin requerir reiniciar el servidor.
+        </p>
+
+        <form id="form-ia" class="pila" novalidate style="margin-top: var(--espacio-m);">
+          <div class="campo">
+            <label for="campo-proveedor" class="etiqueta">Proveedor de IA</label>
+            <select id="campo-proveedor" class="campo-texto" required>
+              <option value="gemini">Google Gemini (API Oficial)</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label for="select-modelo" class="etiqueta">Modelo de IA (Google Gemini)</label>
+              <button type="button" id="btn-sincronizar-modelos" class="boton boton--secundario boton--pequeno" title="Consulta los modelos activos en tu cuenta de Google">
+                🔄 Sincronizar con mi clave
+              </button>
+            </div>
+            <select id="select-modelo" class="campo-texto" required>
+              <option value="gemini-3.5-flash" selected>Gemini 3.5 Flash (Recomendado · Rápido y alta disponibilidad)</option>
+              <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (Ultrarrápido y ligero)</option>
+              <option value="gemini-flash-lite-latest">Gemini Flash-Lite Latest (Estable)</option>
+              <option value="gemini-3.8-flash">Gemini 3.8 Flash (Última generación)</option>
+              <option value="gemini-4-argon">Gemini 4 Argon (Modelo avanzado)</option>
+              <option value="personalizado">Otro modelo (especificar manualmente)...</option>
+            </select>
+            <input
+              type="text"
+              id="campo-modelo-personalizado"
+              class="campo-texto oculto"
+              placeholder="Escribe el nombre del modelo (ej: gemini-3.8-flash o gemini-argon-4)"
+              style="margin-top: var(--espacio-xs);"
+            >
+            <small class="campo-ayuda">
+              Si experimentas el mensaje de "high demand" en Google, selecciona <strong>Gemini 2.0 Flash</strong> o <strong>Gemini 1.5 Flash-8B</strong>.
+            </small>
+          </div>
+
+          <div class="campo">
+            <label for="campo-clave" class="etiqueta">Clave de API (Google AI Studio Key)</label>
+            <input
+              type="password"
+              id="campo-clave"
+              class="campo-texto"
+              placeholder="Ingresa o pega tu clave de API completa..."
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <div id="estado-clave-actual" class="campo-ayuda">
+              <!-- Indica si ya existe clave activa -->
+            </div>
+          </div>
+
+          <div class="ajustes-botones">
+            <button type="button" id="btn-probar-ia" class="boton boton--secundario">
+              🔌 Probar conexión
+            </button>
+            <button type="submit" id="btn-guardar-ia" class="boton boton--primario">
+              💾 Guardar configuración
+            </button>
+          </div>
+        </form>
+
+        <div id="resultado-prueba" class="resultado-prueba-caja oculto" role="status" aria-live="polite"></div>
+      </section>
+
+      <!-- Tarjeta informativa y guía de configuración -->
+      <section class="tarjeta pila" style="gap: var(--espacio-m);">
+        <h3>Guía para obtener y usar la API</h3>
+        <p class="texto-suave">
+          Para que la generación con IA funcione en producción:
+        </p>
+
+        <ol class="guia-pasos">
+          <li>
+            Accede a <strong><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio (API Keys)</a></strong>.
+          </li>
+          <li>
+            Genera una nueva <strong>Gemini API Key</strong> (comienza típicamente con caracteres como <code>AIzaSy...</code> o similar).
+          </li>
+          <li>
+            Pega tu clave en el campo <strong>Clave de API</strong> de la izquierda y haz clic en <strong>Probar conexión</strong>.
+          </li>
+          <li>
+            Una vez confirmada la respuesta en verde, pulsa <strong>Guardar configuración</strong>.
+          </li>
+        </ol>
+
+        <div class="alerta alerta--info" style="margin-top: var(--espacio-s);">
+          <span class="alerta__icono" aria-hidden="true">💡</span>
+          <div class="alerta__contenido">
+            <strong>Configuración en archivo <code>.env</code>:</strong>
+            También puedes definirla en el archivo de entorno en la raíz del proyecto:
+            <pre style="margin-top: var(--espacio-xs); padding: var(--espacio-xs); background: var(--fondo); border-radius: var(--radio-s);">IA_PROVEEDOR=gemini
+IA_MODELO=gemini-1.5-flash
+IA_CLAVE=tu_clave_aqui</pre>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/modulos/admin-ajustes.js"></script>
+</body>
+</html>

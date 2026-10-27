@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distributivo · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/distributivo.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <div class="distributivo-cabecera">
+      <div class="pila" style="gap: var(--espacio-xs);">
+        <h1>Distributivo Académico</h1>
+        <p>Asignación de asignaturas, paralelos, períodos, docentes y nómina de estudiantes por grupo.</p>
+      </div>
+      <button type="button" class="btn btn--primario" id="btnNuevoGrupo">
+        + Nuevo Grupo
+      </button>
+    </div>
+
+    <!-- Tabla de distributivo -->
+    <div class="distributivo-tabla-contenedor">
+      <table class="distributivo-tabla" id="tablaDistributivo">
+        <thead>
+          <tr>
+            <th scope="col">Asignatura</th>
+            <th scope="col">Paralelo</th>
+            <th scope="col">Período</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Estudiantes</th>
+            <th scope="col" style="text-align: right;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTablaDistributivo" aria-live="polite">
+          <!-- Inserción dinámica -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="/js/modulos/distributivo.js"></script>
+</body>
+</html>

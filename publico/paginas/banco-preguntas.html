@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banco de Preguntas · Ecosistema Educativo</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <link rel="stylesheet" href="/css/modulos/banco-preguntas.css">
+</head>
+<body>
+  <div id="plantilla"></div>
+  <main id="contenido" class="contenedor pila">
+    <!-- Encabezado de la página -->
+    <header class="banco-cabecera">
+      <div>
+        <h1 class="banco-titulo">Banco de Preguntas de Evaluación</h1>
+        <p class="banco-subtitulo">
+          Gestiona las preguntas evaluativas por nivel cognitivo (Taxonomía de Bloom), crea reactivos manuales y asiste la generación con IA pedagógica.
+        </p>
+      </div>
+      <div class="banco-acciones-principales">
+        <button type="button" id="btn-nueva-pregunta" class="boton boton--primario">
+          + Nueva pregunta
+        </button>
+        <button type="button" id="btn-generar-ia" class="boton boton--acento">
+          ⚡ Generar con IA
+        </button>
+      </div>
+    </header>
+
+    <!-- Selector de Asignatura y Tema -->
+    <section class="tarjeta selector-tema-bloque">
+      <div class="selector-tema-grid">
+        <div class="campo">
+          <label for="select-asignatura" class="etiqueta">Asignatura</label>
+          <select id="select-asignatura" class="campo-texto">
+            <option value="">Selecciona una asignatura...</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="select-tema" class="etiqueta">Tema evaluado</label>
+          <select id="select-tema" class="campo-texto" disabled>
+            <option value="">Primero selecciona una asignatura...</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenedor principal del banco (visible cuando hay tema seleccionado) -->
+    <section id="panel-banco" class="pila oculto">
+      <!-- Pestañas por nivel Bloom 1 a 5 -->
+      <nav class="pestanas-niveles" role="tablist" aria-label="Niveles de preguntas">
+        <button type="button" class="pestana-nivel pestana-nivel--activa" role="tab" aria-selected="true" data-nivel="1" id="tab-nivel-1">
+          <span class="pestana-nivel__titulo">Nivel 1 · Recordar</span>
+          <span class="pestana-nivel__contador badge" id="contador-nivel-1">0 aprobadas</span>
+        </button>
+        <button type="button" class="pestana-nivel" role="tab" aria-selected="false" data-nivel="2" id="tab-nivel-2">
+          <span class="pestana-nivel__titulo">Nivel 2 · Comprender</span>
+          <span class="pestana-nivel__contador badge" id="contador-nivel-2">0 aprobadas</span>
+        </button>
+        <button type="button" class="pestana-nivel" role="tab" aria-selected="false" data-nivel="3" id="tab-nivel-3">
+          <span class="pestana-nivel__titulo">Nivel 3 · Aplicar</span>
+          <span class="pestana-nivel__contador badge" id="contador-nivel-3">0 aprobadas</span>
+        </button>
+        <button type="button" class="pestana-nivel" role="tab" aria-selected="false" data-nivel="4" id="tab-nivel-4">
+          <span class="pestana-nivel__titulo">Nivel 4 · Analizar</span>
+          <span class="pestana-nivel__contador badge" id="contador-nivel-4">0 aprobadas</span>
+        </button>
+        <button type="button" class="pestana-nivel" role="tab" aria-selected="false" data-nivel="5" id="tab-nivel-5">
+          <span class="pestana-nivel__titulo">Nivel 5 · Evaluar</span>
+          <span class="pestana-nivel__contador badge" id="contador-nivel-5">0 aprobadas</span>
+        </button>
+      </nav>
+
+      <!-- Alerta si hay menos de 20 preguntas aprobadas en el nivel activo -->
+      <div id="alerta-cantidad" class="alerta alerta--advertencia oculto" role="status">
+        <span class="alerta__icono" aria-hidden="true">⚠️</span>
+        <div class="alerta__contenido">
+          <strong>Aviso de cobertura evaluativa:</strong>
+          <span id="alerta-cantidad-texto">Este nivel cuenta con menos de 20 preguntas aprobadas. Se recomienda un mínimo de 20 preguntas para asegurar variedad en las pruebas dinámicas.</span>
+        </div>
+      </div>
+
+      <!-- Lista de preguntas del nivel activo -->
+      <div class="tarjeta preguntas-contenedor">
+        <div class="preguntas-encabezado">
+          <h2 id="titulo-nivel-activo" class="preguntas-titulo-nivel">Preguntas del Nivel 1</h2>
+          <span id="total-preguntas-nivel" class="chip">0 preguntas</span>
+        </div>
+
+        <div id="lista-preguntas" class="pila" style="gap: var(--espacio-m);">
+          <!-- Se llena dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para Edición / Creación manual de Pregunta -->
+    <dialog id="modal-pregunta" class="modal-dialogo">
+      <div class="modal-contenido">
+        <div class="modal-cabecera">
+          <h2 id="modal-pregunta-titulo">Nueva Pregunta</h2>
+          <button type="button" id="btn-cerrar-modal" class="boton-icono" aria-label="Cerrar modal">✕</button>
+        </div>
+
+        <form id="form-pregunta" class="pila" novalidate>
+          <input type="hidden" id="pregunta-id" value="">
+
+          <div class="formulario-grid-2">
+            <div class="campo">
+              <label for="campo-nivel" class="etiqueta">Nivel cognitivo (Bloom)</label>
+              <select id="campo-nivel" class="campo-texto" required>
+                <option value="1">Nivel 1 · Recordar</option>
+                <option value="2">Nivel 2 · Comprender</option>
+                <option value="3">Nivel 3 · Aplicar</option>
+                <option value="4">Nivel 4 · Analizar</option>
+                <option value="5">Nivel 5 · Evaluar</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="campo-tipo" class="etiqueta">Tipo de pregunta</label>
+              <select id="campo-tipo" class="campo-texto" required>
+                <option value="opcion">Opción múltiple</option>
+                <option value="vf">Verdadero / Falso</option>
+                <option value="completar">Completar texto</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="campo-enunciado" class="etiqueta">Enunciado de la pregunta</label>
+            <textarea id="campo-enunciado" class="campo-texto" rows="3" placeholder="Redacta la consigna o pregunta con claridad..." required></textarea>
+            <small class="campo-ayuda" id="ayuda-enunciado">Para tipo completar, usa "_____" donde el estudiante deba responder.</small>
+          </div>
+
+          <!-- Opciones dinámicas según el tipo -->
+          <fieldset id="bloque-opciones" class="campo-fieldset">
+            <legend class="etiqueta" id="legend-opciones">Opciones de respuesta (marca la correcta)</legend>
+            <div id="contenedor-opciones-dinamicas" class="pila" style="gap: var(--espacio-s);">
+              <!-- Se inyecta según tipo: opcion / vf / completar -->
+            </div>
+          </fieldset>
+
+          <div class="campo">
+            <label for="campo-retroalimentacion" class="etiqueta">Retroalimentación pedagógica</label>
+            <textarea id="campo-retroalimentacion" class="campo-texto" rows="2" placeholder="Explicación educativa de la respuesta correcta..."></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="campo-estado" class="etiqueta">Estado</label>
+            <select id="campo-estado" class="campo-texto">
+              <option value="aprobado">Aprobado (disponible para quizzes)</option>
+              <option value="borrador">Borrador (en revisión)</option>
+            </select>
+          </div>
+
+          <div class="modal-acciones">
+            <button type="button" id="btn-cancelar-pregunta" class="boton boton--secundario">Cancelar</button>
+            <button type="submit" id="btn-guardar-pregunta" class="boton boton--primario">Guardar pregunta</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- Modal para propuestas de "Generar con IA" -->
+    <dialog id="modal-ia" class="modal-dialogo modal-dialogo--ancho">
+      <div class="modal-contenido">
+        <div class="modal-cabecera">
+          <div>
+            <h2>Propuestas de Preguntas Generadas con IA</h2>
+            <p class="modal-subtitulo">Revisa, aprueba, edita o descarta cada reactivo propuesto.</p>
+          </div>
+          <button type="button" id="btn-cerrar-modal-ia" class="boton-icono" aria-label="Cerrar modal">✕</button>
+        </div>
+
+        <div class="modal-ia-herramientas">
+          <span id="ia-resumen-contador" class="chip">0 propuestas generadas</span>
+          <button type="button" id="btn-aprobar-todas-ia" class="boton boton--exito boton--pequeno">
+            ✓ Aprobar todas
+          </button>
+        </div>
+
+        <div id="contenedor-propuestas-ia" class="pila" style="gap: var(--espacio-m); max-height: 60vh; overflow-y: auto;">
+          <!-- Propuestas generadas se inyectan aquí -->
+        </div>
+
+        <div class="modal-acciones">
+          <button type="button" id="btn-finalizar-ia" class="boton boton--secundario">Cerrar revisión</button>
+        </div>
+      </div>
+    </dialog>
+  </main>
+  <script type="module" src="/js/modulos/banco-preguntas.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Eres especialista en diseño de juegos educativos. Genera exactamente {{cantidad}} términos para la asignatura "{{asignatura}}" y el tema "{{tema}}".
+
+El material alimentará juegos de parejas, sopa de letras y ahorcado. Cumple estas reglas:
+1. Cada término debe ser una sola palabra, sin espacios ni guiones.
+2. Incluye al menos 4 palabras de exactamente 6 letras, ignorando tildes.
+3. La definición debe ser pedagógica y tener máximo 25 palabras.
+4. La pista debe tener máximo 10 palabras y no revelar la respuesta.
+5. La retroalimentación debe explicar brevemente el concepto.
+6. No repitas estos términos existentes: {{existentes}}
+
+Contenido de referencia:
+{{contenido}}
+
+Devuelve únicamente un arreglo JSON:
+[{"termino":"...","definicion":"...","pista":"...","retroalimentacion":"..."}]

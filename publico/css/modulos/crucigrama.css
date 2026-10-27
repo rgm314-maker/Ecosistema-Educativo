@@ -1,0 +1,5 @@
+.crucigrama {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-l);
+}
